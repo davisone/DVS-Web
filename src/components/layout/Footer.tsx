@@ -118,6 +118,9 @@ export function Footer() {
               <Link href="/mentions-legales" className="text-neutral-500 hover:text-white transition-colors">
                 Mentions légales
               </Link>
+              <Link href="/cgv" className="text-neutral-500 hover:text-white transition-colors">
+                CGV
+              </Link>
             </div>
           </div>
         </div>
