@@ -2,7 +2,7 @@
 
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Button } from '@/components/ui/Button'
-import { Check, ArrowRight, Globe, RefreshCw, Code, Smartphone, Settings } from 'lucide-react'
+import { Check, ArrowRight, Globe, RefreshCw, Code, Smartphone, Settings, Shield, CreditCard, MessageSquare, FileCheck } from 'lucide-react'
 
 const pricingCategories = [
   {
@@ -10,6 +10,7 @@ const pricingCategories = [
     title: 'Sites Vitrine',
     icon: Globe,
     description: 'Votre présence en ligne professionnelle',
+    hasReference: true,
     plans: [
       {
         name: 'Essentiel',
@@ -32,11 +33,10 @@ const pricingCategories = [
         features: [
           '5 à 10 pages',
           'Design sur-mesure premium',
-          'Animations et effets visuels',
-          'Blog intégré',
-          'SEO avancé',
+          'Animations et interactions',
+          'Blog ou galerie intégré',
+          'SEO avancé + Google Analytics',
           'Intégration réseaux sociaux',
-          'Google Analytics',
           'Support 3 mois inclus',
         ],
       },
@@ -79,16 +79,17 @@ const pricingCategories = [
   },
   {
     id: 'applications',
-    title: 'Applications',
+    title: 'Applications sur-mesure',
     icon: Code,
-    description: 'Solutions sur-mesure pour vos besoins spécifiques',
+    description: 'Solutions personnalisées pour vos besoins métier',
+    hasReference: true,
+    isCustomPricing: true,
     plans: [
       {
         name: 'Application Web',
-        price: '2 990',
+        price: 'Sur mesure',
         popular: false,
-        icon: Code,
-        description: 'Outil métier ou plateforme web',
+        description: 'Outil métier, plateforme ou SaaS',
         features: [
           'Analyse des besoins approfondie',
           'Conception UX/UI personnalisée',
@@ -101,9 +102,8 @@ const pricingCategories = [
       },
       {
         name: 'Application Mobile',
-        price: '4 990',
+        price: 'Sur mesure',
         popular: false,
-        icon: Smartphone,
         description: 'Application iOS et Android',
         features: [
           'Application hybride (iOS + Android)',
@@ -157,6 +157,29 @@ const maintenancePlans = [
   },
 ]
 
+const guarantees = [
+  {
+    icon: MessageSquare,
+    title: 'Devis détaillé gratuit',
+    description: 'Réponse sous 48h avec estimation précise et sans engagement.',
+  },
+  {
+    icon: FileCheck,
+    title: 'Transparence totale',
+    description: 'Aucun frais caché. Le prix annoncé est le prix final.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Paiement flexible',
+    description: 'Paiement en 2 ou 3 fois sans frais. Acompte de 30% au démarrage.',
+  },
+  {
+    icon: Shield,
+    title: 'Satisfaction garantie',
+    description: 'Corrections incluses jusqu\'à validation. Vous restez propriétaire du code.',
+  },
+]
+
 export function PricingPage() {
   return (
     <>
@@ -169,15 +192,34 @@ export function PricingPage() {
                 Tarifs
               </span>
               <h1 className="heading-1 mt-3 mb-6">
-                Des solutions pour chaque ambition
+                Des tarifs clairs et transparents
               </h1>
               <p className="text-body">
-                Des tarifs indicatifs pour vous donner une première idée.
-                Chaque projet étant unique, je vous propose une estimation
-                personnalisée après avoir échangé sur vos besoins.
+                Des prix indicatifs pour vous donner une première idée.
+                Chaque projet est unique : après un premier échange,
+                je vous fournis une estimation personnalisée et détaillée.
               </p>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Guarantees */}
+      <section className="pb-16 md:pb-24">
+        <div className="container-custom">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {guarantees.map((guarantee, index) => (
+              <ScrollReveal key={guarantee.title} delay={index * 0.1}>
+                <div className="card h-full">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <guarantee.icon className="text-accent" size={24} />
+                  </div>
+                  <h3 className="text-white font-semibold mb-2">{guarantee.title}</h3>
+                  <p className="text-neutral-400 text-sm">{guarantee.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -186,7 +228,7 @@ export function PricingPage() {
         <section
           key={category.id}
           id={category.id}
-          className={`section-padding ${categoryIndex % 2 === 1 ? 'bg-secondary' : ''}`}
+          className={`section-padding ${categoryIndex % 2 === 0 ? 'bg-secondary' : ''}`}
         >
           <div className="container-custom">
             <ScrollReveal>
@@ -196,6 +238,15 @@ export function PricingPage() {
                 </div>
                 <h2 className="heading-2 mb-4">{category.title}</h2>
                 <p className="text-body max-w-2xl mx-auto">{category.description}</p>
+                {category.hasReference && (
+                  <a
+                    href="/realisations"
+                    className="inline-flex items-center gap-2 mt-4 text-sm text-accent hover:text-accent-light transition-colors"
+                  >
+                    Voir mes réalisations dans cette catégorie
+                    <ArrowRight size={14} />
+                  </a>
+                )}
               </div>
             </ScrollReveal>
 
@@ -221,13 +272,23 @@ export function PricingPage() {
                       <p className="text-neutral-400 text-sm">{plan.description}</p>
                     </div>
                     <div className="mb-6">
-                      <span className="text-sm text-neutral-400">À partir de</span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-accent">
-                          {plan.price}
-                        </span>
-                        <span className="text-neutral-400">€</span>
-                      </div>
+                      {plan.price === 'Sur mesure' ? (
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold text-accent">
+                            Sur mesure
+                          </span>
+                        </div>
+                      ) : (
+                        <>
+                          <span className="text-sm text-neutral-400">À partir de</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-4xl font-bold text-accent">
+                              {plan.price}
+                            </span>
+                            <span className="text-neutral-400">€</span>
+                          </div>
+                        </>
+                      )}
                     </div>
                     <ul className="space-y-3 mb-8 flex-grow">
                       {plan.features.map((feature) => (
@@ -256,7 +317,7 @@ export function PricingPage() {
       ))}
 
       {/* Maintenance */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding">
         <div className="container-custom">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -292,7 +353,6 @@ export function PricingPage() {
                     <p className="text-neutral-400 text-sm">{plan.description}</p>
                   </div>
                   <div className="mb-6">
-                    <span className="text-sm text-neutral-400">À partir de</span>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold text-accent">
                         {plan.price}
@@ -325,38 +385,18 @@ export function PricingPage() {
         </div>
       </section>
 
-      {/* Note */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="heading-3 mb-6">Chaque projet est unique</h2>
-              <p className="text-body mb-4">
-                Les tarifs affichés sont des points de départ indicatifs.
-                Après un premier échange pour comprendre vos besoins,
-                je vous fournis une estimation personnalisée détaillée,
-                sans engagement.
-              </p>
-              <p className="text-neutral-400 text-sm mb-8">
-                Paiement en 2 ou 3 fois sans frais possible • Acompte de 30% au démarrage
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="heading-2 mb-4">Prêt à concrétiser votre projet ?</h2>
+              <h2 className="heading-2 mb-4">Une question sur les tarifs ?</h2>
               <p className="text-body max-w-xl mx-auto mb-8">
-                Discutons de vos besoins et trouvons ensemble la solution
-                la plus adaptée à votre budget.
+                Chaque projet est différent. Contactez-moi pour discuter
+                de vos besoins et recevoir une estimation personnalisée.
               </p>
               <Button href="/contact" size="lg">
-                Demander mon estimation personnalisée
+                Demander mon estimation gratuite
                 <ArrowRight size={20} />
               </Button>
             </div>

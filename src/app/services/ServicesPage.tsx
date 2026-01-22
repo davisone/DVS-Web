@@ -1,20 +1,21 @@
 'use client'
 
+import Link from 'next/link'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Button } from '@/components/ui/Button'
 import { services } from '@/data/services'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, ExternalLink } from 'lucide-react'
 
 const process = [
   {
     step: '01',
     title: 'Échange',
-    description: 'Discussion pour comprendre vos besoins, vos objectifs et votre vision.',
+    description: 'Discussion pour comprendre vos besoins, vos objectifs et votre budget.',
   },
   {
     step: '02',
-    title: 'Conception',
-    description: 'Élaboration de la structure, du design et des fonctionnalités.',
+    title: 'Proposition',
+    description: 'Devis détaillé avec planning, fonctionnalités et tarif transparent.',
   },
   {
     step: '03',
@@ -40,12 +41,12 @@ export function ServicesPage() {
                 Services
               </span>
               <h1 className="heading-1 mt-3 mb-6">
-                Des services adaptés à vos besoins
+                Ce que je peux faire pour vous
               </h1>
               <p className="text-body">
-                Que vous ayez besoin d&apos;un site vitrine, d&apos;une boutique en ligne,
-                d&apos;une application sur-mesure ou d&apos;améliorer votre visibilité en ligne,
-                je vous accompagne à chaque étape de votre projet.
+                Du site vitrine à l&apos;application mobile, je vous accompagne
+                dans la création de solutions digitales adaptées à votre activité
+                et à votre budget.
               </p>
             </div>
           </ScrollReveal>
@@ -70,10 +71,28 @@ export function ServicesPage() {
                     <p className="text-body whitespace-pre-line mb-6">
                       {service.fullDescription}
                     </p>
-                    <Button href="/contact" variant="secondary">
-                      Demander un devis
-                      <ArrowRight size={18} />
-                    </Button>
+
+                    {/* Reference badge */}
+                    {service.hasReference && service.referenceProject && (
+                      <Link
+                        href="/realisations"
+                        className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm bg-green-500/10 text-green-400 rounded-lg hover:bg-green-500/20 transition-colors"
+                      >
+                        <Check size={16} />
+                        Référence : {service.referenceProject}
+                        <ExternalLink size={14} />
+                      </Link>
+                    )}
+
+                    <div className="flex flex-wrap gap-3">
+                      <Button href="/contact" variant="secondary">
+                        Demander un devis
+                        <ArrowRight size={18} />
+                      </Button>
+                      <Button href="/tarifs" variant="ghost">
+                        Voir les tarifs
+                      </Button>
+                    </div>
                   </div>
 
                   <div className={`card ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
@@ -106,7 +125,7 @@ export function ServicesPage() {
               </span>
               <h2 className="heading-2 mt-3 mb-4">Comment ça fonctionne</h2>
               <p className="text-body max-w-2xl mx-auto">
-                Une méthodologie claire et transparente pour mener votre projet
+                Une méthodologie simple et transparente pour mener votre projet
                 de A à Z, avec vous.
               </p>
             </div>
@@ -138,10 +157,10 @@ export function ServicesPage() {
               <h2 className="heading-2 mb-4">Prêt à démarrer ?</h2>
               <p className="text-body max-w-xl mx-auto mb-8">
                 Discutons de votre projet et trouvons ensemble la solution
-                la plus adaptée à vos besoins.
+                la plus adaptée à vos besoins et votre budget.
               </p>
               <Button href="/contact" size="lg">
-                Contactez-moi
+                Discuter de mon projet
                 <ArrowRight size={20} />
               </Button>
             </div>

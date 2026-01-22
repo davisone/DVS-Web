@@ -26,7 +26,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-accent bg-accent/10 rounded-full border border-accent/20">
-              Développeur Web Freelance
+              Développeur Web & Mobile Freelance
             </span>
           </motion.div>
 
@@ -36,9 +36,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="heading-1 mb-6"
           >
-            Des solutions web sur-mesure{' '}
-            <span className="text-gradient-accent">pour donner vie</span>{' '}
-            à vos projets
+            Je crée des sites et applications{' '}
+            <span className="text-gradient-accent">qui fonctionnent</span>{' '}
+            pour votre activité
           </motion.h1>
 
           <motion.p
@@ -47,9 +47,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-body max-w-2xl mx-auto mb-10"
           >
-            Basé près de Rennes, j&apos;accompagne entrepreneurs et entreprises
-            dans la création de sites et applications performants,
-            avec un souci constant de qualité et de résultat.
+            Basé près de Rennes, je conçois des solutions web et mobiles
+            sur-mesure pour les entrepreneurs et TPE.
+            Un interlocuteur unique, des tarifs transparents, un vrai suivi.
           </motion.p>
 
           <motion.div
@@ -59,12 +59,29 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button href="/contact" size="lg">
-              Démarrer un projet
+              Discuter de mon projet
               <ArrowRight size={20} />
             </Button>
             <Button href="/realisations" variant="secondary" size="lg">
               Voir mes réalisations
             </Button>
+          </motion.div>
+
+          {/* Trust indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-500"
+          >
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              Disponible pour nouveaux projets
+            </span>
+            <span className="hidden sm:block text-neutral-700">•</span>
+            <span>Devis gratuit sous 48h</span>
+            <span className="hidden sm:block text-neutral-700">•</span>
+            <span>Paiement en 2-3x sans frais</span>
           </motion.div>
         </div>
       </div>
