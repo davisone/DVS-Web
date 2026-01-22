@@ -10,41 +10,128 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Davison Développement | Développeur Web Freelance à Rennes',
+    default: 'Développeur Web Freelance Rennes & Ille-et-Vilaine | Davison Développement',
     template: '%s | Davison Développement',
   },
   description:
-    'Développeur web freelance basé près de Rennes. Création de sites internet, applications web et mobiles sur-mesure. Design moderne, performance et qualité.',
+    'Développeur web freelance en Ille-et-Vilaine (35). Création de sites internet, applications web et mobiles sur-mesure à Rennes, Mordelles, Bruz et alentours. Devis gratuit.',
   keywords: [
-    'développeur web',
-    'freelance',
-    'Rennes',
-    'création site internet',
-    'application web',
-    'application mobile',
-    'SEO',
-    'refonte site',
+    'développeur web Rennes',
+    'développeur web Ille-et-Vilaine',
+    'freelance Rennes',
+    'création site internet Rennes',
+    'création site web 35',
+    'développeur freelance Bretagne',
+    'application web Rennes',
+    'application mobile Rennes',
+    'agence web Rennes',
+    'site vitrine Rennes',
+    'refonte site internet',
+    'SEO Rennes',
   ],
-  authors: [{ name: 'Davison Développement' }],
+  authors: [{ name: 'Evan Davison' }],
   creator: 'Davison Développement',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://davison-developpement.fr',
     siteName: 'Davison Développement',
-    title: 'Davison Développement | Développeur Web Freelance à Rennes',
+    title: 'Développeur Web Freelance Rennes & Ille-et-Vilaine | Davison Développement',
     description:
-      'Développeur web freelance basé près de Rennes. Création de sites internet, applications web et mobiles sur-mesure.',
+      'Développeur web freelance en Ille-et-Vilaine. Création de sites internet et applications sur-mesure à Rennes et alentours.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Davison Développement | Développeur Web Freelance à Rennes',
+    title: 'Développeur Web Freelance Rennes | Davison Développement',
     description:
-      'Développeur web freelance basé près de Rennes. Création de sites internet, applications web et mobiles sur-mesure.',
+      'Développeur web freelance en Ille-et-Vilaine. Création de sites internet et applications sur-mesure à Rennes et alentours.',
   },
   robots: {
     index: true,
     follow: true,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://davison-developpement.fr',
+  name: 'Davison Développement',
+  description: 'Développeur web freelance spécialisé dans la création de sites internet et applications sur-mesure en Ille-et-Vilaine.',
+  url: 'https://davison-developpement.fr',
+  email: 'contact@davison-developpement.fr',
+  founder: {
+    '@type': 'Person',
+    name: 'Evan Davison',
+    jobTitle: 'Développeur Web Freelance',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '22 Le Domaine',
+    addressLocality: 'Mordelles',
+    postalCode: '35310',
+    addressRegion: 'Bretagne',
+    addressCountry: 'FR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 48.0714,
+    longitude: -1.8436,
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Rennes',
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Ille-et-Vilaine',
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Bretagne',
+    },
+  ],
+  priceRange: '€€',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/evan-davison',
+    'https://github.com/evan-davison',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Services de développement web',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Création de sites internet',
+          description: 'Sites vitrines, e-commerce et sur-mesure',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Développement d\'applications web',
+          description: 'Applications web sur-mesure, SaaS, tableaux de bord',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Développement d\'applications mobiles',
+          description: 'Applications iOS et Android avec Flutter',
+        },
+      },
+    ],
   },
 }
 
@@ -55,6 +142,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={inter.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-primary text-neutral-200 antialiased">
         {children}
       </body>

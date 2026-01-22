@@ -5,6 +5,7 @@ import { Linkedin, Github, Mail } from 'lucide-react'
 const navigation = {
   main: [
     { name: 'Accueil', href: '/' },
+    { name: 'À propos', href: '/a-propos' },
     { name: 'Services', href: '/services' },
     { name: 'Tarifs', href: '/tarifs' },
     { name: 'Réalisations', href: '/realisations' },
@@ -16,6 +17,7 @@ const navigation = {
     { name: 'Référencement SEO', href: '/services#seo' },
     { name: 'Applications web', href: '/services#application-web' },
     { name: 'Applications mobiles', href: '/services#application-mobile' },
+    { name: 'Développeur web Rennes', href: '/developpeur-web-rennes' },
   ],
   social: [
     { name: 'LinkedIn', href: 'https://linkedin.com/in/', icon: Linkedin },
