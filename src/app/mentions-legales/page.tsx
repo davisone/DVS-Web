@@ -77,11 +77,36 @@ export default function MentionsLegalesPage() {
             </section>
 
             <section>
-              <h2 className="heading-3 mb-4">Cookies</h2>
+              <h2 className="heading-3 mb-4">Cookies et mesure d&apos;audience</h2>
               <p className="text-neutral-300">
-                Ce site utilise uniquement des cookies techniques essentiels à son fonctionnement.
-                Aucun cookie publicitaire ou de tracking n&apos;est utilisé.
+                Ce site utilise des cookies techniques essentiels à son fonctionnement.
               </p>
+              <div className="card mt-4">
+                <h3 className="text-white font-semibold mb-3">Google Analytics (GA4)</h3>
+                <p className="text-neutral-300">
+                  Ce site utilise Google Analytics (GA4), un service d&apos;analyse d&apos;audience fourni par Google,
+                  afin de mesurer la fréquentation et l&apos;utilisation du site.
+                </p>
+                <p className="text-neutral-300 mt-3">
+                  <strong className="text-white">Données collectées :</strong> pages consultées, durée des visites,
+                  interactions avec le site (défilement, clics sortants, téléchargements), provenance du trafic,
+                  type d&apos;appareil, navigateur, système d&apos;exploitation, langue et localisation approximative
+                  (pays et ville).
+                </p>
+                <p className="text-neutral-300 mt-3">
+                  <strong className="text-white">Données NON collectées :</strong> nom, adresse e-mail, numéro de téléphone,
+                  données bancaires ou contenu des formulaires. Les adresses IP sont anonymisées conformément
+                  à la réglementation européenne.
+                </p>
+                <p className="text-neutral-300 mt-3">
+                  Ces données sont collectées via des cookies de mesure d&apos;audience et des identifiants pseudonymisés,
+                  sans permettre l&apos;identification directe des utilisateurs.
+                </p>
+                <p className="text-neutral-400 text-sm mt-4">
+                  L&apos;utilisation de ces cookies est soumise au consentement préalable de l&apos;utilisateur,
+                  qui peut les accepter ou les refuser à tout moment via la bannière de gestion des cookies.
+                </p>
+              </div>
             </section>
 
             <section>

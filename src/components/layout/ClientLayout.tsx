@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { IntroAnimation } from '@/components/animations/IntroAnimation'
+import CookieBanner from '@/components/CookieBanner'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -31,6 +33,7 @@ export function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <>
+      <GoogleAnalytics />
       {showIntro && !introComplete && (
         <IntroAnimation onComplete={handleIntroComplete} />
       )}
@@ -45,6 +48,7 @@ export function ClientLayout({ children }: ClientLayoutProps) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieBanner />
       </div>
     </>
   )

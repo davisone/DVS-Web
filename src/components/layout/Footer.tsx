@@ -1,5 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
+import { Cookie } from 'lucide-react'
+
 const navigation = {
   main: [
     { name: 'Accueil', href: '/' },
@@ -100,13 +104,20 @@ export function Footer() {
             <p className="text-neutral-500 text-sm">
               © {currentYear} DVS Web. Tous droits réservés.
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-sm">
               <Link href="/mentions-legales" className="text-neutral-500 hover:text-white transition-colors">
                 Mentions légales
               </Link>
               <Link href="/cgv" className="text-neutral-500 hover:text-white transition-colors">
                 CGV
               </Link>
+              <button
+                onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
+                className="text-neutral-500 hover:text-white transition-colors inline-flex items-center gap-1.5"
+              >
+                <Cookie className="w-3.5 h-3.5" />
+                Gérer les cookies
+              </button>
             </div>
           </div>
         </div>
