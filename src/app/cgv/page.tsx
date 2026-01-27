@@ -81,12 +81,27 @@ export default function CGVPage() {
               </p>
               <div className="card mt-4">
                 <h3 className="text-white font-semibold mb-3">Modalités de paiement</h3>
-                <ul className="space-y-2 text-neutral-300">
-                  <li><strong className="text-white">Acompte :</strong> 30% à la commande</li>
-                  <li><strong className="text-white">Solde :</strong> 70% à la livraison</li>
-                </ul>
+                <p className="text-neutral-300 mb-4">Deux options de paiement sont proposées au choix du client :</p>
+
+                <div className="mb-4">
+                  <p className="text-white font-medium mb-2">Option 1 - Paiement classique</p>
+                  <ul className="space-y-1 text-neutral-300 ml-4">
+                    <li>• <strong className="text-white">Acompte :</strong> 30% à la commande</li>
+                    <li>• <strong className="text-white">Solde :</strong> 70% à la livraison</li>
+                  </ul>
+                </div>
+
+                <div className="mb-4">
+                  <p className="text-white font-medium mb-2">Option 2 - Paiement mensuel</p>
+                  <p className="text-neutral-300 ml-4">
+                    Le montant total de la prestation peut être réglé en plusieurs mensualités,
+                    selon un échéancier défini dans le devis. Le nombre de mensualités et leur
+                    montant sont convenus avant le début du projet.
+                  </p>
+                </div>
+
                 <p className="text-neutral-400 text-sm mt-4">
-                  Paiement par virement bancaire. Les coordonnées sont communiquées sur la facture.
+                  Paiement sécurisé par carte bancaire via Stripe. Un lien de paiement est envoyé par email.
                 </p>
               </div>
               <p className="text-neutral-300 mt-4">
