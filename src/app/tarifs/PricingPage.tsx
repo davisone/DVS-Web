@@ -121,7 +121,7 @@ const pricingCategories = [
 const maintenancePlans = [
   {
     name: 'Sérénité',
-    price: '59',
+    price: '49',
     description: 'L\'essentiel pour garder votre site à jour',
     features: [
       'Mises à jour de sécurité',
@@ -137,7 +137,7 @@ const maintenancePlans = [
     description: 'Pour un site toujours performant',
     features: [
       'Tout le pack Sérénité',
-      'Modifications mineures (2h/mois)',
+      'Modifications mineures',
       'Rapport mensuel',
       'Support prioritaire',
       'Optimisation performances',
@@ -145,11 +145,11 @@ const maintenancePlans = [
   },
   {
     name: 'Performance',
-    price: '199',
+    price: '149',
     description: 'Accompagnement complet',
     features: [
       'Tout le pack Confort',
-      'Évolutions mensuelles (4h/mois)',
+      'Évolutions mensuelles',
       'Conseils stratégiques',
       'Veille technologique',
       'Interlocuteur dédié',
@@ -161,7 +161,7 @@ const guarantees = [
   {
     icon: MessageSquare,
     title: 'Devis détaillé gratuit',
-    description: 'Réponse sous 48h avec estimation précise et sans engagement.',
+    description: 'Réponse sous 24h avec estimation précise et sans engagement.',
   },
   {
     icon: FileCheck,
