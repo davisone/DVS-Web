@@ -90,6 +90,7 @@ export const projects: Project[] = [
       'Design responsive',
     ],
     category: 'app-web',
+    link: 'https://cv-intelligent.vercel.app',
     year: 2026,
     client: 'DVS Web',
     isInternalProject: true,
