@@ -3,7 +3,6 @@ export interface Project {
   title: string
   description: string
   longDescription?: string
-  image: string
   tags: string[]
   features?: string[]
   category: 'site' | 'app-web' | 'app-mobile' | 'refonte'
@@ -21,7 +20,6 @@ export const projects: Project[] = [
     title: 'Haut en Couleur',
     description: 'Site vitrine complet et multilingue pour une entreprise de peinture en bâtiment. Design moderne avec mode sombre, galerie avant/après interactive et optimisation SEO locale.',
     longDescription: 'Création complète de la présence digitale pour cette entreprise de peinture basée près de Rennes : site web multilingue (FR/EN), fiche Google Business Profile, réseaux sociaux et configuration Analytics.',
-    image: '/images/projects/haut-en-couleur.jpg',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'SEO', 'Multilingue'],
     features: [
       'Mode dark/light avec persistance',
@@ -48,7 +46,6 @@ export const projects: Project[] = [
     title: 'Carnet de Santé Animaux',
     description: 'Application mobile multi-plateforme pour gérer la santé et l\'historique médical des animaux. Synchronisation cloud, notifications intelligentes et export PDF.',
     longDescription: 'Carnet de santé numérique complet pour animaux de compagnie et d\'élevage : suivi vaccins, traitements, consultations, généalogie et reproductions. Disponible sur iOS, Android, Web et Desktop.',
-    image: '/images/projects/carnet-sante-animaux.jpg',
     tags: ['Flutter', 'Firebase', 'Dart', 'Multi-plateforme'],
     features: [
       'Fiches animaux complètes (photo, identification, généalogie)',
@@ -73,7 +70,6 @@ export const projects: Project[] = [
     title: 'ResumeForge',
     description: 'Plateforme SaaS de création de CVs intelligents avec IA. Génération de suggestions, scoring ATS, multi-templates et export PDF.',
     longDescription: 'Application web complète permettant de créer, éditer et exporter des CVs professionnels. Intégration IA pour améliorer le contenu et évaluer la compatibilité ATS. Authentification avancée avec 2FA.',
-    image: '/images/projects/resumeforge.jpg',
     tags: ['Next.js 15', 'PostgreSQL', 'Prisma', 'Claude API', 'TypeScript'],
     features: [
       'Authentification OAuth (Google, GitHub) + 2FA',
@@ -91,6 +87,32 @@ export const projects: Project[] = [
     ],
     category: 'app-web',
     link: 'https://cv-intelligent.vercel.app',
+    year: 2026,
+    client: 'DVS Web',
+    isInternalProject: true,
+  },
+  {
+    id: 'qr-generator',
+    title: 'QR Generator',
+    description: 'Application web full-stack pour créer, personnaliser, gérer et partager des QR codes. Templates de style, export multi-format et partage public via lien unique.',
+    longDescription: 'Plateforme complète de génération de QR codes avec personnalisation avancée (couleurs, logo, 8 templates prédéfinis), système d\'authentification, dashboard de gestion et export multi-format (PNG, JPEG, PDF, ZIP).',
+    tags: ['Next.js 16', 'React 19', 'PostgreSQL', 'Prisma', 'NextAuth', 'TypeScript'],
+    features: [
+      'Personnalisation avancée (couleurs, logo, 8 templates)',
+      'Aperçu en temps réel lors de l\'édition',
+      'Export multi-format (PNG, JPEG, PDF, ZIP)',
+      'Authentification complète (inscription, connexion, bcrypt)',
+      'Dashboard avec recherche, filtres et sélection multiple',
+      'Partage public via lien unique par token',
+      'Duplication et suppression groupée',
+      'Taille ajustable et correction d\'erreur configurable',
+      'SEO (Open Graph, JSON-LD, sitemap)',
+      'Google Analytics intégré',
+      'Design responsive mobile-first',
+      'Conformité RGPD (mentions légales, politique de confidentialité)',
+    ],
+    category: 'app-web',
+    link: 'https://qr-dvsweb.vercel.app',
     year: 2026,
     client: 'DVS Web',
     isInternalProject: true,
