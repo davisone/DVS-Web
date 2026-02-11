@@ -79,7 +79,7 @@ Je développe des applications web sur-mesure : tableaux de bord, outils interne
       'Documentation technique',
     ],
     hasReference: true,
-    referenceProject: 'ResumeForge',
+    referenceProject: 'DVS-CV',
   },
   {
     id: 'application-mobile',
