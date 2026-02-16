@@ -46,10 +46,12 @@ export function RealisationsPage() {
       <section className="pb-8">
         <div className="container-custom">
           <ScrollReveal>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrer par catégorie">
               {categories.map((category) => (
                 <button
                   key={category.id}
+                  role="tab"
+                  aria-selected={activeCategory === category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={cn(
                     'px-4 py-2 rounded-lg text-sm font-medium transition-all',
@@ -138,6 +140,8 @@ export function RealisationsPage() {
                               </a>
                             )}
                             <button
+                              aria-label={expandedProject === project.id ? 'Fermer les détails' : 'Voir les détails'}
+                              aria-expanded={expandedProject === project.id}
                               className={cn(
                                 'p-2 rounded-lg transition-all',
                                 expandedProject === project.id

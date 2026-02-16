@@ -24,6 +24,17 @@ function isRateLimited(ip: string): boolean {
 // Durée minimum entre le chargement de la page et la soumission (en ms)
 const MIN_SUBMIT_TIME = 3000
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+interface ContactFormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+  website?: string
+  _loadedAt?: number
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting par IP
@@ -38,7 +49,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { name, email, subject, message, website, _loadedAt } = await request.json()
+    const { name, email, subject, message, website, _loadedAt }: ContactFormData = await request.json()
 
     // Anti-spam : honeypot (si rempli, c'est un bot)
     if (website) {
@@ -51,10 +62,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, id: 'ok' })
     }
 
-    // Validation basique
+    // Validation des champs requis
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'Tous les champs sont requis' },
+        { status: 400 }
+      )
+    }
+
+    // Validation du format email
+    if (!EMAIL_REGEX.test(email)) {
+      return NextResponse.json(
+        { error: 'Adresse email invalide' },
         { status: 400 }
       )
     }

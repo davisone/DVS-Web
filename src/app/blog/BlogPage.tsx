@@ -55,10 +55,12 @@ export function BlogPage({ posts }: BlogPageProps) {
       <section className="pb-8">
         <div className="container-custom">
           <ScrollReveal delay={0.1}>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3" role="tablist" aria-label="Filtrer par catégorie">
               {allCategories.map((cat) => (
                 <button
                   key={cat}
+                  role="tab"
+                  aria-selected={activeCategory === cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                     activeCategory === cat

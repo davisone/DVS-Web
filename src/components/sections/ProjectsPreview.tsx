@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { ArrowRight, ExternalLink, User, Briefcase, Building2 } from 'lucide-react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'

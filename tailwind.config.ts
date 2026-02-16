@@ -21,9 +21,9 @@ const config: Config = {
           dark: '#0D0D0D',
         },
         accent: {
-          DEFAULT: '#C9A227', // Or élégant
-          light: '#D4B44A',
-          dark: '#A68620',
+          DEFAULT: '#D4B44A', // Or élégant — WCAG AA conforme
+          light: '#E0C46A',
+          dark: '#C9A227',
         },
         neutral: {
           50: '#FAFAFA',

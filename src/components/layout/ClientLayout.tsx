@@ -1,11 +1,16 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { IntroAnimation } from '@/components/animations/IntroAnimation'
 import CookieBanner from '@/components/CookieBanner'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+
+const IntroAnimation = dynamic(
+  () => import('@/components/animations/IntroAnimation').then((mod) => mod.IntroAnimation),
+  { ssr: false }
+)
 
 interface ClientLayoutProps {
   children: React.ReactNode
