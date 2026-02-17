@@ -33,24 +33,22 @@ export default function CookieBanner() {
     }
   }, [])
 
-  const savePreferences = () => {
-    const consent = analyticsEnabled ? 'all' : 'essential'
+  const updateConsent = (consent: string) => {
     localStorage.setItem('cookie-consent', consent)
+    window.dispatchEvent(new Event('cookie-consent-changed'))
     setIsVisible(false)
-    // Recharger pour appliquer les changements GA
-    window.location.reload()
+  }
+
+  const savePreferences = () => {
+    updateConsent(analyticsEnabled ? 'all' : 'essential')
   }
 
   const acceptAll = () => {
-    localStorage.setItem('cookie-consent', 'all')
-    setIsVisible(false)
-    window.location.reload()
+    updateConsent('all')
   }
 
   const refuseAll = () => {
-    localStorage.setItem('cookie-consent', 'essential')
-    setIsVisible(false)
-    window.location.reload()
+    updateConsent('essential')
   }
 
   if (!isVisible) return null
@@ -97,11 +95,15 @@ export default function CookieBanner() {
           <div className="px-5 pt-4 space-y-3 animate-fade-in">
             {/* Cookies essentiels - toujours activés */}
             <div className="flex items-center justify-between p-3 bg-neutral-800/50 rounded-lg">
-              <div>
+              <div id="cookie-essential-label">
                 <p className="text-white text-sm font-medium">Cookies essentiels</p>
                 <p className="text-neutral-500 text-xs">Nécessaires au fonctionnement du site</p>
               </div>
               <div
+                role="switch"
+                aria-checked={true}
+                aria-labelledby="cookie-essential-label"
+                aria-disabled={true}
                 className="w-10 h-6 bg-accent/20 rounded-full flex items-center justify-end px-1 cursor-not-allowed opacity-70"
                 title="Toujours activés"
               >
@@ -111,6 +113,8 @@ export default function CookieBanner() {
 
             {/* Cookies analytiques - toggle interactif */}
             <button
+              role="switch"
+              aria-checked={analyticsEnabled}
               onClick={() => setAnalyticsEnabled(!analyticsEnabled)}
               className="w-full flex items-center justify-between p-3 bg-neutral-800/50 rounded-lg hover:bg-neutral-800/70 transition-colors"
             >
@@ -119,6 +123,7 @@ export default function CookieBanner() {
                 <p className="text-neutral-500 text-xs">Pour comprendre comment vous utilisez le site</p>
               </div>
               <div
+                aria-hidden="true"
                 className={`w-10 h-6 rounded-full flex items-center px-1 transition-colors ${
                   analyticsEnabled ? 'bg-accent/20 justify-end' : 'bg-neutral-700 justify-start'
                 }`}

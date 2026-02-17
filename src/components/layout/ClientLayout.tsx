@@ -58,8 +58,14 @@ export function ClientLayout({ children }: ClientLayoutProps) {
             : 'opacity-0'
         }
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-accent focus:text-primary focus:rounded-lg focus:font-medium focus:text-sm"
+        >
+          Aller au contenu principal
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <CookieBanner />
       </div>

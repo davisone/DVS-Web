@@ -4,18 +4,11 @@ import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { BlogPost, categories } from '@/data/blog'
+import { formatDate } from '@/lib/utils'
 
 interface BlogPostPageProps {
   post: BlogPost
   contentHtml: string
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
 }
 
 export function BlogPostPage({ post, contentHtml }: BlogPostPageProps) {

@@ -1,10 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
-import { Button } from '@/components/ui/Button'
-import { Mail, MapPin, Send, CheckCircle, Phone } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ContactForm } from '@/components/ui/ContactForm'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 const contactInfo = [
   {
@@ -27,62 +25,6 @@ const contactInfo = [
 ]
 
 export function ContactPage() {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    website: '', // Honeypot anti-spam
-  })
-  const [formLoadedAt] = useState(() => Date.now())
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState('')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError('')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formState,
-          _loadedAt: formLoadedAt,
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Erreur lors de l\'envoi')
-      }
-
-      setIsSubmitted(true)
-      setFormState({ name: '', email: '', subject: '', message: '', website: '' })
-    } catch {
-      setError('Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormState((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
-
-  const inputClasses = cn(
-    'w-full px-4 py-3 bg-secondary border border-neutral-800 rounded-lg',
-    'text-white placeholder:text-neutral-500',
-    'focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent',
-    'transition-colors'
-  )
-
   return (
     <>
       {/* Hero */}
@@ -110,144 +52,10 @@ export function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-3">
               <ScrollReveal>
-                {isSubmitted ? (
-                  <div className="card text-center py-12">
-                    <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="text-green-500" size={32} />
-                    </div>
-                    <h2 className="heading-3 mb-2">Message envoyé !</h2>
-                    <p className="text-neutral-400">
-                      Merci pour votre message. Je vous répondrai dans les plus brefs délais.
-                    </p>
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="mt-6 text-accent hover:text-accent-light transition-colors"
-                    >
-                      Envoyer un autre message
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-neutral-300 mb-2"
-                        >
-                          Nom complet
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formState.name}
-                          onChange={handleChange}
-                          required
-                          className={inputClasses}
-                          placeholder="Votre nom"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-neutral-300 mb-2"
-                        >
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formState.email}
-                          onChange={handleChange}
-                          required
-                          className={inputClasses}
-                          placeholder="votre@email.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium text-neutral-300 mb-2"
-                      >
-                        Sujet
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formState.subject}
-                        onChange={handleChange}
-                        required
-                        className={inputClasses}
-                      >
-                        <option value="">Sélectionnez un sujet</option>
-                        <option value="creation-site">Création de site internet</option>
-                        <option value="refonte-site">Refonte de site existant</option>
-                        <option value="application-web">Application web</option>
-                        <option value="application-mobile">Application mobile</option>
-                        <option value="seo">Référencement SEO</option>
-                        <option value="autre">Autre</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-neutral-300 mb-2"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formState.message}
-                        onChange={handleChange}
-                        required
-                        rows={6}
-                        className={cn(inputClasses, 'resize-none')}
-                        placeholder="Décrivez votre projet, vos besoins, vos questions..."
-                      />
-                    </div>
-
-                    {/* Honeypot anti-spam - invisible pour les humains */}
-                    <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
-                      <label htmlFor="website">Website</label>
-                      <input
-                        type="text"
-                        id="website"
-                        name="website"
-                        value={formState.website}
-                        onChange={handleChange}
-                        tabIndex={-1}
-                        autoComplete="off"
-                      />
-                    </div>
-
-                    {error && (
-                      <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                        {error}
-                      </div>
-                    )}
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full sm:w-auto"
-                    >
-                      {isSubmitting ? (
-                        'Envoi en cours...'
-                      ) : (
-                        <>
-                          Envoyer le message
-                          <Send size={18} />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                )}
+                <ContactForm
+                  idPrefix="contact"
+                  submitLabel="Envoyer le message"
+                />
               </ScrollReveal>
             </div>
 

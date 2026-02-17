@@ -5,20 +5,13 @@ import Link from 'next/link'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { BlogPost, BlogCategory, categories } from '@/data/blog'
+import { formatDate } from '@/lib/utils'
 
 interface BlogPageProps {
   posts: BlogPost[]
 }
 
 const allCategories: (BlogCategory | 'all')[] = ['all', 'prix', 'conseils', 'seo', 'tendances']
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
-}
 
 export function BlogPage({ posts }: BlogPageProps) {
   const [activeCategory, setActiveCategory] = useState<BlogCategory | 'all'>('all')

@@ -3,7 +3,7 @@
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
-const GA_MEASUREMENT_ID = 'G-SJ3JK4GF4H'
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export default function GoogleAnalytics() {
   const [consentGiven, setConsentGiven] = useState(false)
@@ -17,20 +17,20 @@ export default function GoogleAnalytics() {
     // Vérifier au chargement
     checkConsent()
 
-    // Écouter les changements de localStorage (si l'utilisateur change son choix)
+    // Écouter les changements de localStorage (depuis un autre onglet)
     const handleStorageChange = () => checkConsent()
     window.addEventListener('storage', handleStorageChange)
 
-    // Vérifier périodiquement (pour détecter les changements dans le même onglet)
-    const interval = setInterval(checkConsent, 1000)
+    // Écouter l'événement custom (depuis le même onglet, déclenché par CookieBanner)
+    window.addEventListener('cookie-consent-changed', checkConsent)
 
     return () => {
       window.removeEventListener('storage', handleStorageChange)
-      clearInterval(interval)
+      window.removeEventListener('cookie-consent-changed', checkConsent)
     }
   }, [])
 
-  if (!consentGiven) return null
+  if (!consentGiven || !GA_MEASUREMENT_ID) return null
 
   return (
     <>
