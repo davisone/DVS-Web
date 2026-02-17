@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Button } from '@/components/ui/Button'
-import { Check, ArrowRight, Globe, RefreshCw, Code, Smartphone, Settings, Shield, CreditCard, MessageSquare, FileCheck } from 'lucide-react'
+import { Check, ArrowRight, Globe, RefreshCw, Code, Smartphone, Settings, Shield, CreditCard, MessageSquare, FileCheck, ChevronDown } from 'lucide-react'
 
 const pricingCategories = [
   {
@@ -14,7 +15,7 @@ const pricingCategories = [
     plans: [
       {
         name: 'Essentiel',
-        price: '990',
+        price: '~600',
         popular: true,
         description: 'Idéal pour démarrer votre présence en ligne',
         features: [
@@ -28,7 +29,7 @@ const pricingCategories = [
       },
       {
         name: 'Professionnel',
-        price: '1 790',
+        price: '~1 500',
         description: 'Pour une image de marque renforcée',
         features: [
           '5 à 10 pages',
@@ -50,7 +51,7 @@ const pricingCategories = [
     plans: [
       {
         name: 'Refonte légère',
-        price: '790',
+        price: '~800',
         description: 'Modernisation visuelle de votre site',
         features: [
           'Nouveau design moderne',
@@ -62,7 +63,7 @@ const pricingCategories = [
       },
       {
         name: 'Refonte complète',
-        price: '1 490',
+        price: '~1 500',
         popular: true,
         description: 'Transformation totale de votre présence web',
         features: [
@@ -157,6 +158,29 @@ const maintenancePlans = [
   },
 ]
 
+const faqItems = [
+  {
+    question: 'Combien coûte un site internet ?',
+    answer: 'Le prix dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaire, blog, e-commerce…), le niveau de personnalisation du design et les délais. Un site vitrine se situe généralement entre 600€ et 1 500€ selon la complexité. Pour des projets plus ambitieux (e-commerce, application), le budget peut être plus conséquent. Le meilleur moyen d\'avoir un chiffre précis : me décrire votre projet pour recevoir un devis gratuit et détaillé.',
+  },
+  {
+    question: 'Comment se passe le paiement ?',
+    answer: 'Je m\'adapte à votre situation : paiement en 1 fois, en 2, 3 ou 4 fois sans frais, ou même en mensualités pour lisser votre investissement. Un acompte de 30% est demandé au démarrage du projet. On définit ensemble la formule qui vous convient le mieux. Vous recevez une facture à chaque échéance.',
+  },
+  {
+    question: 'Que comprend le prix indiqué ?',
+    answer: 'Les tarifs incluent la conception, le développement, l\'intégration du contenu que vous fournissez, l\'optimisation SEO de base, la mise en ligne et une formation à la prise en main. L\'hébergement première année est inclus pour les sites vitrine. Le nom de domaine, la rédaction de contenu et les photos professionnelles ne sont pas inclus mais peuvent être ajoutés sur devis.',
+  },
+  {
+    question: 'Combien de temps dure un projet ?',
+    answer: 'Un site vitrine essentiel est livré en 2 à 3 semaines. Un site plus complet (professionnel, e-commerce) demande 4 à 8 semaines. Pour les applications web ou mobiles, comptez 2 à 4 mois selon la complexité. Ces délais incluent les phases de validation avec vous.',
+  },
+  {
+    question: 'Et si le projet évolue en cours de route ?',
+    answer: 'C\'est tout à fait normal et ça arrive souvent. Si de nouveaux besoins apparaissent pendant le développement, on en discute et je vous propose un avenant au devis initial. Pas de surprise : tout est validé ensemble avant d\'avancer.',
+  },
+]
+
 const guarantees = [
   {
     icon: MessageSquare,
@@ -171,7 +195,7 @@ const guarantees = [
   {
     icon: CreditCard,
     title: 'Paiement flexible',
-    description: 'Paiement en 2 ou 3 fois sans frais. Acompte de 30% au démarrage.',
+    description: 'En 1, 2, 3, 4 fois ou en mensualités. Acompte de 30% au démarrage.',
   },
   {
     icon: Shield,
@@ -179,6 +203,65 @@ const guarantees = [
     description: 'Corrections incluses jusqu\'à validation. Vous restez propriétaire du code.',
   },
 ]
+
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="border border-neutral-800 rounded-xl overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-800/30 transition-colors"
+        aria-expanded={isOpen}
+      >
+        <span className="text-white font-medium pr-4">{question}</span>
+        <ChevronDown
+          size={20}
+          className={`text-accent flex-shrink-0 transition-transform duration-300 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      <div
+        className={`grid transition-all duration-300 ${
+          isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-5 pb-5 text-neutral-400 text-sm leading-relaxed">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const FAQSection = () => (
+  <section className="section-padding bg-secondary">
+    <div className="container-custom">
+      <ScrollReveal>
+        <div className="text-center mb-12">
+          <span className="text-accent text-sm font-medium uppercase tracking-wider">
+            FAQ
+          </span>
+          <h2 className="heading-2 mt-3 mb-4">Questions fréquentes</h2>
+          <p className="text-body max-w-2xl mx-auto">
+            Les réponses aux questions que vous vous posez probablement.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <div className="max-w-3xl mx-auto space-y-3">
+        {faqItems.map((item, index) => (
+          <ScrollReveal key={item.question} delay={index * 0.05}>
+            <FAQItem question={item.question} answer={item.answer} />
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+)
 
 export function PricingPage() {
   return (
@@ -192,12 +275,12 @@ export function PricingPage() {
                 Tarifs
               </span>
               <h1 className="heading-1 mt-3 mb-6">
-                Des tarifs clairs et transparents
+                Des tarifs adaptés à chaque projet
               </h1>
               <p className="text-body">
-                Des prix indicatifs pour vous donner une première idée.
-                Chaque projet est unique : après un premier échange,
-                je vous fournis une estimation personnalisée et détaillée.
+                Des fourchettes de prix pour vous donner un premier repère.
+                Chaque projet est unique : je vous fournis une estimation
+                personnalisée et détaillée après un premier échange gratuit.
               </p>
             </div>
           </ScrollReveal>
@@ -285,8 +368,11 @@ export function PricingPage() {
                             <span className="text-4xl font-bold text-accent">
                               {plan.price}
                             </span>
-                            <span className="text-neutral-400">€</span>
+                            <span className="text-neutral-400">€ *</span>
                           </div>
+                          <span className="text-xs text-neutral-500 mt-1 block">
+                            * Prix indicatif, devis personnalisé gratuit
+                          </span>
                         </>
                       )}
                     </div>
@@ -384,6 +470,9 @@ export function PricingPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* CTA */}
       <section className="section-padding bg-secondary">
