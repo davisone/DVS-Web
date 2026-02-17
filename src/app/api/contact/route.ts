@@ -26,6 +26,16 @@ const MIN_SUBMIT_TIME = 3000
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+// Échappement HTML pour éviter les injections XSS dans les emails
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 interface ContactFormData {
   name: string
   email: string
@@ -90,6 +100,12 @@ export async function POST(request: NextRequest) {
 
     const subjectLabel = subjectLabels[subject] || subject
 
+    // Échappement des entrées utilisateur avant injection dans le HTML
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeMessage = escapeHtml(message)
+    const safeSubjectLabel = escapeHtml(subjectLabel)
+
     // Template HTML professionnel
     const emailHtml = `
 <!DOCTYPE html>
@@ -120,7 +136,7 @@ export async function POST(request: NextRequest) {
           <tr>
             <td style="padding: 24px 40px 0 40px; text-align: center;">
               <span style="display: inline-block; background-color: #f0f9ff; color: #0369a1; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;">
-                ${subjectLabel}
+                ${safeSubjectLabel}
               </span>
             </td>
           </tr>
@@ -134,7 +150,7 @@ export async function POST(request: NextRequest) {
                     <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                       <tr>
                         <td width="80" style="color: #64748b; font-size: 13px; font-weight: 500; text-transform: uppercase;">Nom</td>
-                        <td style="color: #1e293b; font-size: 15px; font-weight: 600;">${name}</td>
+                        <td style="color: #1e293b; font-size: 15px; font-weight: 600;">${safeName}</td>
                       </tr>
                     </table>
                   </td>
@@ -145,7 +161,7 @@ export async function POST(request: NextRequest) {
                       <tr>
                         <td width="80" style="color: #64748b; font-size: 13px; font-weight: 500; text-transform: uppercase;">Email</td>
                         <td style="color: #6366f1; font-size: 15px;">
-                          <a href="mailto:${email}" style="color: #6366f1; text-decoration: none;">${email}</a>
+                          <a href="mailto:${safeEmail}" style="color: #6366f1; text-decoration: none;">${safeEmail}</a>
                         </td>
                       </tr>
                     </table>
@@ -160,7 +176,7 @@ export async function POST(request: NextRequest) {
             <td style="padding: 0 40px 24px 40px;">
               <h2 style="margin: 0 0 12px 0; color: #1e293b; font-size: 16px; font-weight: 600;">Message</h2>
               <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; color: #475569; font-size: 15px; line-height: 1.6;">
-                ${message.replace(/\n/g, '<br />')}
+                ${safeMessage.replace(/\n/g, '<br />')}
               </div>
             </td>
           </tr>
@@ -168,7 +184,7 @@ export async function POST(request: NextRequest) {
           <!-- Bouton répondre -->
           <tr>
             <td style="padding: 0 40px 32px 40px; text-align: center;">
-              <a href="mailto:${email}?subject=Re: ${subjectLabel}" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600;">
+              <a href="mailto:${safeEmail}?subject=Re: ${safeSubjectLabel}" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600;">
                 Répondre à ${name.split(' ')[0]}
               </a>
             </td>
@@ -239,11 +255,11 @@ export async function POST(request: NextRequest) {
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                   <tr>
                     <td style="padding: 8px 0; color: #64748b; font-size: 14px; width: 100px;">Sujet :</td>
-                    <td style="padding: 8px 0; color: #1e293b; font-size: 14px; font-weight: 500;">${subjectLabel}</td>
+                    <td style="padding: 8px 0; color: #1e293b; font-size: 14px; font-weight: 500;">${safeSubjectLabel}</td>
                   </tr>
                   <tr>
                     <td style="padding: 8px 0; color: #64748b; font-size: 14px; vertical-align: top;">Message :</td>
-                    <td style="padding: 8px 0; color: #1e293b; font-size: 14px; line-height: 1.5;">${message.length > 200 ? message.substring(0, 200).replace(/\n/g, '<br />') + '...' : message.replace(/\n/g, '<br />')}</td>
+                    <td style="padding: 8px 0; color: #1e293b; font-size: 14px; line-height: 1.5;">${safeMessage.length > 200 ? safeMessage.substring(0, 200).replace(/\n/g, '<br />') + '...' : safeMessage.replace(/\n/g, '<br />')}</td>
                   </tr>
                 </table>
               </div>

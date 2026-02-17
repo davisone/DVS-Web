@@ -77,7 +77,7 @@ const services = [
   {
     titre: 'Sites vitrines',
     description: 'Présentez votre activité avec un site moderne et optimisé pour Google.',
-    prix: 'À partir de 990€',
+    prix: 'À partir de ~600€',
   },
   {
     titre: 'Sites e-commerce',
