@@ -20,7 +20,7 @@ function formatDate(dateStr: string): string {
 
 export function BlogPostPage({ post, contentHtml }: BlogPostPageProps) {
   return (
-    <main className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-primary">
       {/* Header */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container-custom max-w-4xl">
@@ -107,6 +107,6 @@ export function BlogPostPage({ post, contentHtml }: BlogPostPageProps) {
           </ScrollReveal>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

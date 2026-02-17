@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useReducedMotion, motion } from 'framer-motion'
 import { ReactNode } from 'react'
 
 interface ScrollRevealProps {
@@ -16,6 +16,12 @@ export function ScrollReveal({
   delay = 0,
   direction = 'up',
 }: ScrollRevealProps) {
+  const prefersReducedMotion = useReducedMotion()
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>
+  }
+
   const directionOffset = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },

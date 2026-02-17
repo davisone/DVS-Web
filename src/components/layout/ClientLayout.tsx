@@ -21,6 +21,14 @@ export function ClientLayout({ children }: ClientLayoutProps) {
   const [introComplete, setIntroComplete] = useState(false)
 
   useEffect(() => {
+    // Respecter la préférence d'accessibilité
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      setIntroComplete(true)
+      return
+    }
+
     // Vérifier si l'animation a déjà été jouée dans cette session
     const hasSeenIntro = sessionStorage.getItem('dd-intro-seen')
 

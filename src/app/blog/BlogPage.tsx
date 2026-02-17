@@ -29,7 +29,7 @@ export function BlogPage({ posts }: BlogPageProps) {
       : posts.filter((post) => post.category === activeCategory)
 
   return (
-    <main className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-primary">
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container-custom">
@@ -126,6 +126,6 @@ export function BlogPage({ posts }: BlogPageProps) {
           )}
         </div>
       </section>
-    </main>
+    </div>
   )
 }
