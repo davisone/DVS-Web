@@ -96,8 +96,8 @@ export function ContactPage() {
                   <div>
                     <h3 className="text-white font-medium mb-2">Disponibilité</h3>
                     <p className="text-neutral-400 text-sm">
-                      Je suis généralement disponible du lundi au vendredi,
-                      de 9h à 18h. Je réponds à tous les messages sous 24h.
+                      Disponible 7j/7, 24h/24. Je réponds à tous les messages
+                      dans les plus brefs délais.
                     </p>
                   </div>
                 </div>

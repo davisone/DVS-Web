@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
-import { Cookie } from 'lucide-react'
+import { Cookie, Github } from 'lucide-react'
 
 const navigation = {
   main: [
@@ -37,10 +37,20 @@ export function Footer() {
               <Logo size="sm" />
               <span className="font-semibold text-white">DVS Web</span>
             </Link>
-            <p className="text-neutral-400 text-sm leading-relaxed">
+            <p className="text-neutral-400 text-sm leading-relaxed mb-4">
               Développeur web freelance basé près de Rennes.
               Création de sites et applications sur-mesure.
             </p>
+            <a
+              href="https://github.com/davisone"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors text-sm"
+              aria-label="GitHub"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
           </div>
 
           {/* Navigation */}
