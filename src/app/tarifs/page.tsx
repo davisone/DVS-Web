@@ -2,9 +2,16 @@ import type { Metadata } from 'next'
 import { PricingPage } from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Tarifs développeur web freelance Rennes — Sites, apps, maintenance',
+  title: 'Tarifs — Création de site internet à Rennes | Prix freelance',
   description:
-    'Tarifs indicatifs pour la création de sites internet, refonte, applications web et mobiles près de Rennes. Devis gratuit, paiement en plusieurs fois. FAQ incluse.',
+    'Tarifs pour la création de sites internet, refonte, applications web et mobiles à Rennes. Développeur freelance, devis gratuit, paiement en plusieurs fois. FAQ incluse.',
+  openGraph: {
+    title: 'Tarifs — Création de site internet à Rennes | Prix freelance',
+    description:
+      'Tarifs pour la création de sites internet et applications à Rennes. Développeur freelance, devis gratuit.',
+    url: 'https://dvs-web.fr/tarifs',
+    type: 'website',
+  },
 }
 
 const faqJsonLd = {

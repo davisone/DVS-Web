@@ -2,9 +2,16 @@ import type { Metadata } from 'next'
 import { ContactPage } from './ContactPage'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact — Développeur web freelance Rennes',
   description:
-    'Contactez-moi pour discuter de votre projet web. Développeur freelance disponible pour la création de sites internet et applications à Rennes et alentours.',
+    'Contactez Evan Davison pour votre projet de site internet ou application web à Rennes. Devis gratuit sous 24h, développeur freelance disponible en Ille-et-Vilaine.',
+  openGraph: {
+    title: 'Contact — Développeur web freelance Rennes',
+    description:
+      'Contactez Evan Davison pour votre projet de site internet ou application web à Rennes. Devis gratuit sous 24h.',
+    url: 'https://dvs-web.fr/contact',
+    type: 'website',
+  },
 }
 
 export default function Page() {

@@ -3,11 +3,11 @@ import { getAllPosts } from '@/lib/blog'
 import { BlogPage } from './BlogPage'
 
 export const metadata: Metadata = {
-  title: 'Blog | DVS Web - Développeur web freelance à Rennes',
+  title: 'Blog',
   description:
     'Conseils, guides et actualités sur la création de sites web, le SEO local et le développement web à Rennes. Par DVS Web, développeur freelance.',
   openGraph: {
-    title: 'Blog | DVS Web - Développeur web freelance à Rennes',
+    title: 'Blog — DVS Web',
     description:
       'Conseils, guides et actualités sur la création de sites web, le SEO local et le développement web à Rennes.',
     url: 'https://dvs-web.fr/blog',

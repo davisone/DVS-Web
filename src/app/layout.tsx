@@ -9,26 +9,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dvs-web.fr'),
   title: {
     default: 'Développeur Web Freelance Rennes & Ille-et-Vilaine | DVS Web',
     template: '%s | DVS Web',
   },
   description:
-    'Développeur web freelance en Ille-et-Vilaine (35). Création de sites internet, applications web et mobiles sur-mesure à Rennes, Mordelles, Bruz et alentours. Devis gratuit.',
-  keywords: [
-    'développeur web Rennes',
-    'développeur web Ille-et-Vilaine',
-    'freelance Rennes',
-    'création site internet Rennes',
-    'création site web 35',
-    'développeur freelance Bretagne',
-    'application web Rennes',
-    'application mobile Rennes',
-    'agence web Rennes',
-    'site vitrine Rennes',
-    'refonte site internet',
-    'SEO Rennes',
-  ],
+    'Evan Davison, développeur web freelance à Rennes. Création de sites internet, applications web et mobiles sur-mesure pour entrepreneurs, TPE et PME en Ille-et-Vilaine. Devis gratuit.',
   authors: [{ name: 'Evan Davison' }],
   creator: 'DVS Web',
   icons: {
@@ -48,13 +35,13 @@ export const metadata: Metadata = {
     siteName: 'DVS Web',
     title: 'Développeur Web Freelance Rennes & Ille-et-Vilaine | DVS Web',
     description:
-      'Développeur web freelance en Ille-et-Vilaine. Création de sites internet et applications sur-mesure à Rennes et alentours.',
+      'Evan Davison, développeur web freelance à Rennes. Création de sites internet et applications sur-mesure pour entrepreneurs et PME en Ille-et-Vilaine.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Développeur Web Freelance Rennes | DVS Web',
     description:
-      'Développeur web freelance en Ille-et-Vilaine. Création de sites internet et applications sur-mesure à Rennes et alentours.',
+      'Evan Davison, développeur web freelance à Rennes. Création de sites internet et applications sur-mesure pour entrepreneurs et PME en Ille-et-Vilaine.',
   },
   robots: {
     index: true,
@@ -67,14 +54,22 @@ const jsonLd = {
   '@type': 'LocalBusiness',
   '@id': 'https://dvs-web.fr',
   name: 'DVS Web',
-  description: 'Développeur web freelance spécialisé dans la création de sites internet et applications sur-mesure en Ille-et-Vilaine.',
+  description: 'Evan Davison, développeur web freelance à Rennes. Création de sites internet, applications web et mobiles sur-mesure pour entrepreneurs, TPE et PME en Ille-et-Vilaine.',
   url: 'https://dvs-web.fr',
   email: 'contact@dvs-web.fr',
   telephone: '+33651019506',
+  sameAs: [
+    'https://github.com/evmusic',
+    'https://www.linkedin.com/in/evan-davison-music/',
+  ],
   founder: {
     '@type': 'Person',
     name: 'Evan Davison',
     jobTitle: 'Développeur Web Freelance',
+    sameAs: [
+      'https://github.com/evmusic',
+      'https://www.linkedin.com/in/evan-davison-music/',
+    ],
   },
   address: {
     '@type': 'PostalAddress',
@@ -106,9 +101,9 @@ const jsonLd = {
   priceRange: '€€',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

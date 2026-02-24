@@ -7,23 +7,13 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 export const metadata: Metadata = {
   title: 'Développeur Web Freelance à Rennes et en Ille-et-Vilaine (35)',
   description:
-    'Besoin d\'un développeur web en Ille-et-Vilaine ? Création de sites internet, applications web et mobiles à Rennes, Mordelles, Bruz, Cesson-Sévigné. Devis gratuit sous 24h.',
-  keywords: [
-    'développeur web Rennes',
-    'développeur freelance Rennes',
-    'création site internet Rennes',
-    'développeur web Ille-et-Vilaine',
-    'développeur web 35',
-    'agence web Rennes',
-    'site vitrine Rennes',
-    'développeur web Mordelles',
-    'développeur web Bruz',
-    'création site web Bretagne',
-  ],
+    'Evan Davison, développeur web freelance à Rennes. Création de sites internet, sites vitrines, applications web et mobiles en Ille-et-Vilaine. Freelance disponible à Mordelles, Bruz, Cesson-Sévigné et alentours. Devis gratuit.',
   openGraph: {
     title: 'Développeur Web Freelance à Rennes et en Ille-et-Vilaine',
     description:
-      'Création de sites internet et applications sur-mesure en Ille-et-Vilaine. Développeur freelance basé à Mordelles, près de Rennes.',
+      'Evan Davison, développeur freelance basé à Mordelles. Création de sites internet et applications sur-mesure en Ille-et-Vilaine.',
+    url: 'https://dvs-web.fr/developpeur-web-rennes',
+    type: 'website',
   },
 }
 

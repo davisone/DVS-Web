@@ -24,6 +24,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url: `https://dvs-web.fr/blog/${post.slug}`,
         type: 'article',
         publishedTime: post.date,
+        images: [
+          {
+            url: '/images/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
       },
     }
   } catch {
@@ -67,11 +75,40 @@ export default async function Page({ params }: PageProps) {
     keywords: post.tags.join(', '),
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Accueil',
+        item: 'https://dvs-web.fr',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://dvs-web.fr/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://dvs-web.fr/blog/${post.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <BlogPostPage post={post} contentHtml={contentHtml} />
     </>

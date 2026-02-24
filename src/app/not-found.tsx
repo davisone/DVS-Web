@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Home, ArrowLeft, Mail } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Page introuvable',
+  description:
+    'La page que vous recherchez n\'existe pas ou a été déplacée. Retournez à l\'accueil de DVS Web.',
+}
 
 export default function NotFound() {
   return (
