@@ -15,7 +15,7 @@ const pricingCategories = [
     plans: [
       {
         name: 'Essentiel',
-        price: '~600',
+        price: 'Sur devis',
         popular: true,
         description: 'Idéal pour démarrer votre présence en ligne',
         features: [
@@ -29,7 +29,7 @@ const pricingCategories = [
       },
       {
         name: 'Professionnel',
-        price: '~1 500',
+        price: 'Sur devis',
         description: 'Pour une image de marque renforcée',
         features: [
           '5 à 10 pages',
@@ -51,7 +51,7 @@ const pricingCategories = [
     plans: [
       {
         name: 'Refonte légère',
-        price: '~800',
+        price: 'Sur devis',
         description: 'Modernisation visuelle de votre site',
         features: [
           'Nouveau design moderne',
@@ -63,7 +63,7 @@ const pricingCategories = [
       },
       {
         name: 'Refonte complète',
-        price: '~1 500',
+        price: 'Sur devis',
         popular: true,
         description: 'Transformation totale de votre présence web',
         features: [
@@ -84,11 +84,10 @@ const pricingCategories = [
     icon: Code,
     description: 'Solutions personnalisées pour vos besoins métier',
     hasReference: true,
-    isCustomPricing: true,
     plans: [
       {
         name: 'Application Web',
-        price: 'Sur mesure',
+        price: 'Sur devis',
         popular: false,
         description: 'Outil métier, plateforme ou SaaS',
         features: [
@@ -103,7 +102,7 @@ const pricingCategories = [
       },
       {
         name: 'Application Mobile',
-        price: 'Sur mesure',
+        price: 'Sur devis',
         popular: false,
         description: 'Application iOS et Android',
         features: [
@@ -161,7 +160,7 @@ const maintenancePlans = [
 const faqItems = [
   {
     question: 'Combien coûte un site internet ?',
-    answer: 'Le prix dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaire, blog, e-commerce…), le niveau de personnalisation du design et les délais. Un site vitrine se situe généralement entre 600€ et 1 500€ selon la complexité. Pour des projets plus ambitieux (e-commerce, application), le budget peut être plus conséquent. Le meilleur moyen d\'avoir un chiffre précis : me décrire votre projet pour recevoir un devis gratuit et détaillé.',
+    answer: 'Le prix dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaire, blog, e-commerce…), le niveau de personnalisation du design et les délais. Chaque projet étant unique, le meilleur moyen d\'avoir un chiffre précis est de me décrire votre projet pour recevoir un devis gratuit et détaillé.',
   },
   {
     question: 'Comment se passe le paiement ?',
@@ -278,7 +277,6 @@ export function PricingPage() {
                 Des tarifs adaptés à chaque projet
               </h1>
               <p className="text-body">
-                Des fourchettes de prix pour vous donner un premier repère.
                 Chaque projet est unique : je vous fournis une estimation
                 personnalisée et détaillée après un premier échange gratuit.
               </p>
@@ -355,26 +353,14 @@ export function PricingPage() {
                       <p className="text-neutral-400 text-sm">{plan.description}</p>
                     </div>
                     <div className="mb-6">
-                      {plan.price === 'Sur mesure' ? (
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-3xl font-bold text-accent">
-                            Sur mesure
-                          </span>
-                        </div>
-                      ) : (
-                        <>
-                          <span className="text-sm text-neutral-400">À partir de</span>
-                          <div className="flex items-baseline gap-1">
-                            <span className="text-4xl font-bold text-accent">
-                              {plan.price}
-                            </span>
-                            <span className="text-neutral-400">€ *</span>
-                          </div>
-                          <span className="text-xs text-neutral-500 mt-1 block">
-                            * Prix indicatif, devis personnalisé gratuit
-                          </span>
-                        </>
-                      )}
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-bold text-accent">
+                          Sur devis
+                        </span>
+                      </div>
+                      <span className="text-xs text-neutral-500 mt-1 block">
+                        Devis personnalisé gratuit
+                      </span>
                     </div>
                     <ul className="space-y-3 mb-8 flex-grow">
                       {plan.features.map((feature) => (

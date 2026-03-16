@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { PricingPage } from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Tarifs — Création de site internet à Rennes | Prix freelance',
+  title: 'Offres & Devis — Création de site internet à Rennes | Freelance',
   description:
-    'Tarifs pour la création de sites internet, refonte, applications web et mobiles à Rennes. Développeur freelance, devis gratuit, paiement en plusieurs fois. FAQ incluse.',
+    'Découvrez mes offres pour la création de sites internet, refonte, applications web et mobiles à Rennes. Développeur freelance, devis gratuit et personnalisé.',
   openGraph: {
-    title: 'Tarifs — Création de site internet à Rennes | Prix freelance',
+    title: 'Offres & Devis — Création de site internet à Rennes | Freelance',
     description:
-      'Tarifs pour la création de sites internet et applications à Rennes. Développeur freelance, devis gratuit.',
+      'Découvrez mes offres pour la création de sites internet et applications à Rennes. Développeur freelance, devis gratuit.',
     url: 'https://dvs-web.fr/tarifs',
     type: 'website',
   },
@@ -23,7 +23,7 @@ const faqJsonLd = {
       name: 'Combien coûte un site internet ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le prix dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaire, blog, e-commerce…), le niveau de personnalisation du design et les délais. Un site vitrine se situe généralement entre 600€ et 1 500€ selon la complexité. Pour des projets plus ambitieux (e-commerce, application), le budget peut être plus conséquent.',
+        text: 'Le prix dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaire, blog, e-commerce…), le niveau de personnalisation du design et les délais. Chaque projet étant unique, le meilleur moyen d\'avoir un chiffre précis est de demander un devis gratuit et personnalisé.',
       },
     },
     {
