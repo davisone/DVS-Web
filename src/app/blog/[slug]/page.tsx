@@ -18,6 +18,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${post.title} | DVS Web`,
       description: post.description,
+      alternates: {
+        canonical: `https://dvs-web.fr/blog/${post.slug}`,
+      },
       openGraph: {
         title: post.title,
         description: post.description,
