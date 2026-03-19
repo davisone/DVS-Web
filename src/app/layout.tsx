@@ -101,13 +101,6 @@ const jsonLd = {
       name: 'Bretagne',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '5',
-    bestRating: '5',
-    worstRating: '1',
-  },
   priceRange: '€€',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
@@ -147,6 +140,44 @@ const jsonLd = {
   },
 }
 
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://dvs-web.fr/#website',
+  name: 'DVS Web',
+  url: 'https://dvs-web.fr',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://dvs-web.fr/blog?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://dvs-web.fr/#evan-davison',
+  name: 'Evan Davison',
+  jobTitle: 'Développeur Web Freelance',
+  url: 'https://dvs-web.fr',
+  email: 'contact@dvs-web.fr',
+  telephone: '+33651019506',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Mordelles',
+    postalCode: '35310',
+    addressRegion: 'Bretagne',
+    addressCountry: 'FR',
+  },
+  sameAs: [
+    'https://github.com/evmusic',
+    'https://www.linkedin.com/in/evan-davison-music/',
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -158,6 +189,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-primary text-neutral-200 antialiased">
