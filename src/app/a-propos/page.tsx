@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'À propos — Evan Davison, développeur web freelance à Rennes',
   description:
     'Evan Davison, développeur web freelance basé près de Rennes. Parcours, compétences et valeurs. Création de sites internet et applications sur-mesure pour les entreprises en Ille-et-Vilaine.',
+  alternates: {
+    canonical: 'https://dvs-web.fr/a-propos',
+  },
   openGraph: {
     title: 'À propos — Evan Davison, développeur web freelance à Rennes',
     description:
@@ -38,12 +41,25 @@ const personJsonLd = {
   },
 }
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://dvs-web.fr' },
+    { '@type': 'ListItem', position: 2, name: 'À propos', item: 'https://dvs-web.fr/a-propos' },
+  ],
+}
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <AboutPage />
     </>

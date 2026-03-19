@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Offres & Devis — Création de site internet à Rennes | Freelance',
   description:
     'Découvrez mes offres pour la création de sites internet, refonte, applications web et mobiles à Rennes. Développeur freelance, devis gratuit et personnalisé.',
+  alternates: {
+    canonical: 'https://dvs-web.fr/tarifs',
+  },
   openGraph: {
     title: 'Offres & Devis — Création de site internet à Rennes | Freelance',
     description:
@@ -61,12 +64,25 @@ const faqJsonLd = {
   ],
 }
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://dvs-web.fr' },
+    { '@type': 'ListItem', position: 2, name: 'Tarifs', item: 'https://dvs-web.fr/tarifs' },
+  ],
+}
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <PricingPage />
     </>

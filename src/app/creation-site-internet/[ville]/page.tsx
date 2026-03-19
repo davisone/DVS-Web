@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    alternates: {
+      canonical: `https://dvs-web.fr/creation-site-internet/${ville.slug}`,
+    },
     openGraph: {
       title,
       description,
       url: `https://dvs-web.fr/creation-site-internet/${ville.slug}`,
       type: 'website',
-    },
-    alternates: {
-      canonical: `https://dvs-web.fr/creation-site-internet/${ville.slug}`,
     },
   }
 }
@@ -96,7 +96,7 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
   const ville = getVilleBySlug(slug)
   if (!ville) notFound()
 
-  const jsonLd = JSON.stringify({
+  const serviceJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `Création site internet ${ville.nom}`,
@@ -112,19 +112,64 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
         addressCountry: 'FR',
       },
     },
-    areaServed: {
-      '@type': 'City',
-      name: ville.nom,
-    },
+    areaServed: { '@type': 'City', name: ville.nom },
     description: `Création de site internet sur-mesure à ${ville.nom}. Sites vitrines, e-commerce et applications web pour les entreprises du ${ville.departement}.`,
+  })
+
+  const breadcrumbJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://dvs-web.fr' },
+      { '@type': 'ListItem', position: 2, name: 'Création site internet', item: 'https://dvs-web.fr/creation-site-internet/rennes' },
+      { '@type': 'ListItem', position: 3, name: `Création site internet ${ville.nom}`, item: `https://dvs-web.fr/creation-site-internet/${ville.slug}` },
+    ],
+  })
+
+  const faqJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `Combien coûte un site internet à ${ville.nom} ?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Le prix dépend de votre projet. Un site vitrine démarre à partir de ~600€, avec l'hébergement première année inclus. Contactez-moi pour un devis gratuit adapté à votre activité à ${ville.nom}.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Vous déplacez-vous à ${ville.nom} pour les réunions ?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Je travaille principalement en visio, ce qui me permet d'être efficace avec mes clients partout en Bretagne. Pour les projets plus importants, je peux me déplacer à ${ville.nom}${ville.distanceRennes ? ` (${ville.distanceRennes} depuis ma base en Ille-et-Vilaine)` : ' en Bretagne'}.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'En combien de temps mon site sera-t-il en ligne ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Un site vitrine est livré en 2 à 4 semaines selon la complexité. Un e-commerce ou une application web demande 4 à 8 semaines. Tout est défini clairement dans le devis avant de démarrer.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Mon site sera-t-il visible sur Google ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "L'optimisation SEO de base est incluse dans tous mes projets : structure technique, balises meta, données structurées, sitemap et performances. Je peux aussi vous accompagner sur une stratégie de contenu local.",
+        },
+      },
+    ],
   })
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serviceJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
@@ -141,12 +186,10 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
                 Création de site internet à {ville.nom}
               </h1>
               <p className="text-body text-lg mb-8">
-                Vous cherchez un développeur web pour créer votre site internet à{' '}
-                {ville.nom} ? Je conçois des sites vitrines, boutiques en ligne et
-                applications web sur-mesure pour les entreprises et indépendants
-                {ville.distanceRennes
-                  ? ` — à ${ville.distanceRennes} de ma base en Ille-et-Vilaine`
-                  : ' en Bretagne'}.
+                {ville.description
+                  ? `${ville.description} Vous cherchez un développeur web pour créer votre site internet ? Je conçois des sites vitrines, boutiques en ligne et applications web sur-mesure pour les entreprises et indépendants de ${ville.nom}.`
+                  : `Vous cherchez un développeur web pour créer votre site internet à ${ville.nom} ? Je conçois des sites vitrines, boutiques en ligne et applications web sur-mesure pour les entreprises et indépendants${ville.distanceRennes ? ` — à ${ville.distanceRennes} de ma base en Ille-et-Vilaine` : ' en Bretagne'}.`
+                }
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button href="/contact" size="lg">
@@ -161,6 +204,29 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Contexte local */}
+      {ville.secteurEco && (
+        <section className="py-12 md:py-16">
+          <div className="container-custom">
+            <ScrollReveal>
+              <div className="max-w-3xl">
+                <h2 className="heading-3 mb-4">
+                  Un développeur web au service des entreprises de {ville.nom}
+                </h2>
+                <p className="text-body mb-4">
+                  Je travaille avec des professionnels de tous les secteurs à {ville.nom} — {ville.secteurEco} — pour créer des sites internet qui génèrent de vrais résultats.
+                </p>
+                {ville.entreprisesType && (
+                  <p className="text-body">
+                    Mes clients sont souvent des {ville.entreprisesType} qui veulent développer leur visibilité en ligne et attirer de nouveaux clients dans leur zone de chalandise.
+                  </p>
+                )}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* Services */}
       <section className="py-16 md:py-24 bg-secondary">
@@ -262,26 +328,10 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
             <ScrollReveal>
               <div className="space-y-6">
                 {[
-                  {
-                    num: '1',
-                    titre: 'Premier contact',
-                    desc: 'Vous me décrivez votre projet par email ou téléphone. Je vous réponds sous 24h.',
-                  },
-                  {
-                    num: '2',
-                    titre: 'Échange sur votre projet',
-                    desc: `On fait le point sur vos besoins, vos objectifs et votre budget. En visio ou sur place${ville.distanceRennes ? ` (${ville.distanceRennes} de ma base)` : ''}.`,
-                  },
-                  {
-                    num: '3',
-                    titre: 'Devis détaillé gratuit',
-                    desc: 'Vous recevez une proposition claire avec le périmètre, le planning et le tarif.',
-                  },
-                  {
-                    num: '4',
-                    titre: 'Réalisation et mise en ligne',
-                    desc: 'Développement avec des points réguliers, puis mise en ligne et formation.',
-                  },
+                  { num: '1', titre: 'Premier contact', desc: 'Vous me décrivez votre projet par email ou téléphone. Je vous réponds sous 24h.' },
+                  { num: '2', titre: 'Échange sur votre projet', desc: `On fait le point sur vos besoins, vos objectifs et votre budget. En visio ou sur place${ville.distanceRennes ? ` (${ville.distanceRennes} de ma base)` : ''}.` },
+                  { num: '3', titre: 'Devis détaillé gratuit', desc: 'Vous recevez une proposition claire avec le périmètre, le planning et le tarif.' },
+                  { num: '4', titre: 'Réalisation et mise en ligne', desc: 'Développement avec des points réguliers, puis mise en ligne et formation.' },
                 ].map((step) => (
                   <div key={step.num} className="flex gap-4">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary font-bold flex items-center justify-center">

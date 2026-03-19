@@ -6,6 +6,8 @@ export type Ville = {
   region: string
   distanceRennes?: string
   description?: string
+  secteurEco?: string
+  entreprisesType?: string
 }
 
 export const villesBretagne: Ville[] = [
@@ -15,6 +17,9 @@ export const villesBretagne: Ville[] = [
     departement: 'Ille-et-Vilaine',
     codePostal: '35000',
     region: 'Bretagne',
+    description: 'Rennes est la capitale bretonne, pôle économique et universitaire de premier plan avec un tissu de startups, PME et grandes entreprises particulièrement dynamique.',
+    secteurEco: 'tech, services, commerce, enseignement supérieur, santé',
+    entreprisesType: 'startups, agences, cabinets de conseil, restaurants, commerces de centre-ville',
   },
   {
     slug: 'brest',
@@ -23,6 +28,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29200',
     region: 'Bretagne',
     distanceRennes: '246 km',
+    description: 'Brest est une ville portuaire tournée vers la mer, avec un secteur naval, militaire et universitaire structurant qui attire de nombreuses entreprises de services.',
+    secteurEco: 'défense, maritime, université, commerce, numérique',
+    entreprisesType: 'entreprises maritimes, sous-traitants industriels, artisans, professions libérales, commerces',
   },
   {
     slug: 'nantes',
@@ -31,6 +39,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '44000',
     region: 'Pays de la Loire',
     distanceRennes: '108 km',
+    description: 'Nantes est une métropole dynamique à la croisée des cultures, avec un tissu économique diversifié allant du numérique à l\'industrie en passant par le commerce et la culture.',
+    secteurEco: 'industrie, numérique, commerce, culture, agroalimentaire',
+    entreprisesType: 'PME industrielles, agences digitales, restaurants, boutiques, prestataires de services',
   },
   {
     slug: 'quimper',
@@ -39,6 +50,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29000',
     region: 'Bretagne',
     distanceRennes: '217 km',
+    description: 'Quimper, capitale du Finistère, est réputée pour son artisanat, sa faïencerie et son tissu touristique et commercial dense en plein cœur de la Cornouaille.',
+    secteurEco: 'tourisme, artisanat, commerce, agroalimentaire, services',
+    entreprisesType: 'artisans, commerces, hôtels-restaurants, producteurs locaux, professions libérales',
   },
   {
     slug: 'lorient',
@@ -47,6 +61,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56100',
     region: 'Bretagne',
     distanceRennes: '158 km',
+    description: 'Lorient est une ville maritime et industrielle dynamique, connue pour ses chantiers navals, sa filière pêche et le festival interceltique qui rayonne à l\'international.',
+    secteurEco: 'pêche, industrie navale, commerce, tourisme, défense',
+    entreprisesType: 'entreprises maritimes, chantiers navals, commerces, hôteliers, artisans',
   },
   {
     slug: 'vannes',
@@ -55,6 +72,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56000',
     region: 'Bretagne',
     distanceRennes: '109 km',
+    description: 'Vannes est une ville dynamique et attractive au bord du Golfe du Morbihan, prisée pour son cadre de vie, son tourisme actif et son tissu de services en plein essor.',
+    secteurEco: 'tourisme, commerce, services, immobilier, restauration',
+    entreprisesType: 'agences immobilières, restaurants, commerces, professions libérales, prestataires touristiques',
   },
   {
     slug: 'saint-malo',
@@ -63,6 +83,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '35400',
     region: 'Bretagne',
     distanceRennes: '71 km',
+    description: 'Saint-Malo est une cité corsaire emblématique dont l\'économie repose fortement sur le tourisme, la plaisance et un commerce local vivant attirant des clientèles locales et internationales.',
+    secteurEco: 'tourisme, commerce, nautisme, restauration, immobilier',
+    entreprisesType: 'hôtels, restaurants, commerces touristiques, artisans, agences de voyage',
   },
   {
     slug: 'saint-brieuc',
@@ -71,6 +94,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22000',
     region: 'Bretagne',
     distanceRennes: '102 km',
+    description: 'Saint-Brieuc, chef-lieu des Côtes-d\'Armor, est un bassin d\'emploi important avec un tissu de PME, de services et de commerces qui rayonne sur l\'ensemble du département.',
+    secteurEco: 'services, commerce, agroalimentaire, santé, PME',
+    entreprisesType: 'PME, commerces, professions de santé, artisans, prestataires de services',
   },
   {
     slug: 'fougeres',
@@ -79,6 +105,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '35300',
     region: 'Bretagne',
     distanceRennes: '53 km',
+    description: 'Fougères est une ville industrielle historique en pleine diversification, avec un tissu de PME actif et une tradition entrepreneuriale solide dans le secteur industriel et les services.',
+    secteurEco: 'industrie, PME, commerce, services, logistique',
+    entreprisesType: 'industriels, artisans, commerces de centre-ville, prestataires logistiques',
   },
   {
     slug: 'vitré',
@@ -87,6 +116,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '35500',
     region: 'Bretagne',
     distanceRennes: '37 km',
+    description: 'Vitré est une ville à l\'économie industrielle et agroalimentaire solide, reconnue pour sa qualité de vie et son attractivité résidentielle à 37 km de Rennes.',
+    secteurEco: 'agroalimentaire, industrie, commerce, logistique',
+    entreprisesType: 'PME agroalimentaires, artisans, commerces, entrepreneurs locaux',
   },
   {
     slug: 'redon',
@@ -95,6 +127,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '35600',
     region: 'Bretagne',
     distanceRennes: '65 km',
+    description: 'Redon est un carrefour stratégique entre Bretagne, Loire-Atlantique et Normandie, avec un commerce de proximité, un artisanat local et des services bien développés.',
+    secteurEco: 'commerce, artisanat, services, agriculture, tourisme fluvial',
+    entreprisesType: 'artisans, commerçants, professions libérales, prestataires de services',
   },
   {
     slug: 'dinard',
@@ -103,6 +138,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '35800',
     region: 'Bretagne',
     distanceRennes: '74 km',
+    description: 'Dinard est une station balnéaire haut de gamme avec une clientèle aisée, un fort tourisme saisonnier et un marché immobilier parmi les plus actifs de la Bretagne nord.',
+    secteurEco: 'tourisme balnéaire, immobilier, restauration, commerce haut de gamme',
+    entreprisesType: 'agences immobilières, restaurants gastronomiques, boutiques, hôtels, prestataires événementiels',
   },
   {
     slug: 'morlaix',
@@ -111,6 +149,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29600',
     region: 'Bretagne',
     distanceRennes: '196 km',
+    description: 'Morlaix est une ville de caractère finistérienne avec un centre-ville commerçant animé, un artisanat local vivant et un tourisme patrimonial en développement.',
+    secteurEco: 'commerce, artisanat, tourisme, services, agroalimentaire',
+    entreprisesType: 'artisans, commerces, restaurants, professions libérales, prestataires de services',
   },
   {
     slug: 'lannion',
@@ -119,6 +160,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22300',
     region: 'Bretagne',
     distanceRennes: '161 km',
+    description: 'Lannion est le pôle technologique breton avec la Technopole Anticipa, concentrant télécoms, tech et R&D. Une ville idéale pour les entreprises innovantes et les startups.',
+    secteurEco: 'télécommunications, numérique, R&D, services, tech',
+    entreprisesType: 'entreprises tech, startups, prestataires numériques, commerces, professions libérales',
   },
   {
     slug: 'concarneau',
@@ -127,6 +171,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29900',
     region: 'Bretagne',
     distanceRennes: '220 km',
+    description: 'Concarneau est la troisième ville de pêche française, avec une industrie de conserverie renommée et un tourisme culturel et maritime fort autour de la ville close.',
+    secteurEco: 'pêche, conserverie, tourisme, commerce, nautisme',
+    entreprisesType: 'entreprises maritimes, conserveries, hôtels-restaurants, commerces, artisans',
   },
   {
     slug: 'dinan',
@@ -135,6 +182,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22100',
     region: 'Bretagne',
     distanceRennes: '56 km',
+    description: 'Dinan est une cité médiévale exceptionnelle dont l\'attractivité touristique stimule l\'artisanat d\'art, la restauration et le commerce local toute l\'année.',
+    secteurEco: 'tourisme, artisanat d\'art, commerce, restauration, hébergement',
+    entreprisesType: 'artisans d\'art, restaurants, boutiques de souvenirs, hôtels, prestataires touristiques',
   },
   {
     slug: 'guingamp',
@@ -143,6 +193,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22200',
     region: 'Bretagne',
     distanceRennes: '130 km',
+    description: 'Guingamp est un bassin économique dynamique des Côtes-d\'Armor, avec des PME agroalimentaires solides et des services de proximité bien implantés sur l\'ensemble du territoire.',
+    secteurEco: 'agroalimentaire, PME, commerce, services, agriculture',
+    entreprisesType: 'coopératives agricoles, PME, artisans, commerces, professions libérales',
   },
   {
     slug: 'auray',
@@ -151,6 +204,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56400',
     region: 'Bretagne',
     distanceRennes: '119 km',
+    description: 'Auray est un pôle touristique et artisanal du Morbihan, aux portes du Golfe, avec une économie orientée qualité de vie, savoir-faire local et nautisme.',
+    secteurEco: 'tourisme, artisanat, commerce, nautisme, services',
+    entreprisesType: 'artisans, restaurants, boutiques, agences de tourisme, prestataires nautiques',
   },
   {
     slug: 'pontivy',
@@ -159,6 +215,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56300',
     region: 'Bretagne',
     distanceRennes: '105 km',
+    description: 'Pontivy est le centre administratif et commercial du Centre-Bretagne, avec des services et des commerces qui répondent aux besoins d\'un large bassin de vie rural.',
+    secteurEco: 'services publics, commerce, artisanat, agriculture, santé',
+    entreprisesType: 'artisans, commerces de centre-ville, professions libérales, prestataires de services',
   },
   {
     slug: 'lamballe',
@@ -167,6 +226,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22400',
     region: 'Bretagne',
     distanceRennes: '89 km',
+    description: 'Lamballe-Armor est un pôle agroalimentaire majeur de Bretagne, avec de grandes coopératives avicoles et un tissu de PME et de services en plein développement.',
+    secteurEco: 'agroalimentaire, PME, commerce, agriculture, services',
+    entreprisesType: 'coopératives, PME agroalimentaires, artisans, commerces, transporteurs',
   },
   {
     slug: 'landerneau',
@@ -175,6 +237,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29800',
     region: 'Bretagne',
     distanceRennes: '226 km',
+    description: 'Landerneau est une ville commerçante et résidentielle du Finistère, avec un centre-ville animé, un tissu de PME actif et une proximité immédiate avec la métropole brestoise.',
+    secteurEco: 'commerce, PME, services, artisanat, agroalimentaire',
+    entreprisesType: 'commerçants, artisans, professions libérales, restaurants, PME locales',
   },
   {
     slug: 'hennebont',
@@ -183,6 +248,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56700',
     region: 'Bretagne',
     distanceRennes: '155 km',
+    description: 'Hennebont est une ville industrielle et résidentielle de l\'agglomération lorientaise, avec un tissu de PME, d\'artisans et de services en développement.',
+    secteurEco: 'industrie, PME, services, commerce, artisanat',
+    entreprisesType: 'PME industrielles, artisans, commerces, prestataires de services',
   },
   {
     slug: 'saint-nazaire',
@@ -191,6 +259,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '44600',
     region: 'Pays de la Loire',
     distanceRennes: '136 km',
+    description: 'Saint-Nazaire est un bastion industriel majeur, célèbre pour ses chantiers navals et la construction de paquebots, avec un tissu dense de sous-traitants et d\'entreprises industrielles.',
+    secteurEco: 'industrie navale, sous-traitance, commerce, services, logistique',
+    entreprisesType: 'industriels, sous-traitants, artisans, commerces, prestataires techniques',
   },
   {
     slug: 'douarnenez',
@@ -199,6 +270,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29100',
     region: 'Bretagne',
     distanceRennes: '228 km',
+    description: 'Douarnenez est une ville portuaire au fort patrimoine maritime, avec une économie mêlant pêche traditionnelle, conserverie artisanale et tourisme culturel en plein essor.',
+    secteurEco: 'pêche, tourisme, artisanat, commerce, conserverie',
+    entreprisesType: 'pêcheurs, artisans, restaurants, commerces touristiques, producteurs locaux',
   },
   {
     slug: 'perros-guirec',
@@ -207,6 +281,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22700',
     region: 'Bretagne',
     distanceRennes: '168 km',
+    description: 'Perros-Guirec est une station balnéaire prisée de la Côte de Granit Rose, avec un tourisme saisonnier intense, un commerce local vivant et un marché immobilier très actif.',
+    secteurEco: 'tourisme balnéaire, commerce, restauration, immobilier, nautisme',
+    entreprisesType: 'hôtels, restaurants, boutiques, agences immobilières, prestataires nautiques',
   },
   {
     slug: 'quimperle',
@@ -215,6 +292,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29300',
     region: 'Bretagne',
     distanceRennes: '195 km',
+    description: 'Quimperlé est une ville de caractère au confluent de deux rivières, avec un artisanat local reconnu, un commerce de proximité animé et un tourisme vert en développement.',
+    secteurEco: 'artisanat, commerce, tourisme vert, services, agroalimentaire',
+    entreprisesType: 'artisans, commerçants, restaurateurs, prestataires touristiques, professions libérales',
   },
   {
     slug: 'loudéac',
@@ -223,6 +303,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '22600',
     region: 'Bretagne',
     distanceRennes: '98 km',
+    description: 'Loudéac est un carrefour du Centre-Bretagne à l\'économie agricole et agroalimentaire dominante, avec des PME dynamiques et des services locaux bien développés.',
+    secteurEco: 'agroalimentaire, agriculture, PME, commerce, services',
+    entreprisesType: 'coopératives, PME agroalimentaires, artisans, commerces, exploitants agricoles',
   },
   {
     slug: 'carhaix',
@@ -231,6 +314,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29270',
     region: 'Bretagne',
     distanceRennes: '171 km',
+    description: 'Carhaix-Plouguer est un bourg rural breton dynamique, connu pour la brasserie Coreff et le festival Vieilles Charrues, avec un artisanat local et un commerce de proximité vivants.',
+    secteurEco: 'agriculture, artisanat, culture, commerce, agroalimentaire',
+    entreprisesType: 'artisans, agriculteurs, commerces, prestataires événementiels, producteurs locaux',
   },
   {
     slug: 'chateaulin',
@@ -239,6 +325,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '29150',
     region: 'Bretagne',
     distanceRennes: '217 km',
+    description: 'Châteaulin est une ville à vocation agricole et de services, point de passage important du Finistère central avec des commerces et artisans de proximité bien établis.',
+    secteurEco: 'agriculture, services, commerce, artisanat, pêche',
+    entreprisesType: 'artisans, agriculteurs, commerces de proximité, prestataires de services',
   },
   {
     slug: 'lanester',
@@ -247,6 +336,9 @@ export const villesBretagne: Ville[] = [
     codePostal: '56600',
     region: 'Bretagne',
     distanceRennes: '154 km',
+    description: 'Lanester est une commune industrielle et résidentielle de l\'agglomération de Lorient, avec un tissu de PME, d\'artisans et de commerces actif à deux pas du port.',
+    secteurEco: 'industrie, PME, commerce, services, artisanat',
+    entreprisesType: 'PME, artisans, commerces, prestataires industriels, professions libérales',
   },
 ]
 

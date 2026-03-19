@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     description:
       'Evan Davison, développeur web freelance à Rennes. Création de sites internet et applications sur-mesure pour entrepreneurs et PME en Ille-et-Vilaine.',
   },
+  alternates: {
+    canonical: 'https://dvs-web.fr',
+  },
   robots: {
     index: true,
     follow: true,
@@ -98,6 +101,13 @@ const jsonLd = {
       name: 'Bretagne',
     },
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '5',
+    bestRating: '5',
+    worstRating: '1',
+  },
   priceRange: '€€',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
