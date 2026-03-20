@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import { villesBretagne } from '@/data/villes-bretagne'
+import { villesFrance } from '@/data/villes-france'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://dvs-web.fr'
@@ -76,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  const villesRoutes: MetadataRoute.Sitemap = villesBretagne.map((ville) => ({
+  const villesRoutes: MetadataRoute.Sitemap = villesFrance.map((ville) => ({
     url: `${baseUrl}/creation-site-internet/${ville.slug}`,
     lastModified: new Date('2026-03-16'),
     changeFrequency: 'monthly' as const,

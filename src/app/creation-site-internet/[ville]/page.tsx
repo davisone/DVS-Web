@@ -3,14 +3,14 @@ import { notFound } from 'next/navigation'
 import { ArrowRight, MapPin, Check, Clock, Euro, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
-import { villesBretagne, getVilleBySlug } from '@/data/villes-bretagne'
+import { villesFrance, getVilleBySlug } from '@/data/villes-france'
 
 type Props = {
   params: Promise<{ ville: string }>
 }
 
 export async function generateStaticParams() {
-  return villesBretagne.map((v) => ({ ville: v.slug }))
+  return villesFrance.map((v) => ({ ville: v.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
