@@ -64,7 +64,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'tourisme, artisanat, commerce, agroalimentaire, services',
     entreprisesType: 'artisans, commerces, hôtels-restaurants, producteurs locaux, professions libérales',
     villesProches: ['brest', 'lorient', 'concarneau', 'douarnenez'],
-    metiersPresents: ['restaurant', 'boulanger', 'coiffeur', 'artisan', 'traiteur'],
+    metiersPresents: ['restaurant', 'boulanger', 'coiffeur', 'menuisier', 'traiteur'],
   },
   {
     slug: 'lorient',
@@ -181,7 +181,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'commerce, artisanat, tourisme, services, agroalimentaire',
     entreprisesType: 'artisans, commerces, restaurants, professions libérales, prestataires de services',
     villesProches: ['brest', 'lannion', 'guingamp', 'carhaix'],
-    metiersPresents: ['restaurant', 'boulanger', 'artisan', 'coiffeur', 'electricien'],
+    metiersPresents: ['restaurant', 'boulanger', 'menuisier', 'coiffeur', 'electricien'],
   },
   {
     slug: 'lannion',
@@ -207,7 +207,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'pêche, conserverie, tourisme, commerce, nautisme',
     entreprisesType: 'entreprises maritimes, conserveries, hôtels-restaurants, commerces, artisans',
     villesProches: ['quimper', 'quimperle', 'lorient', 'douarnenez'],
-    metiersPresents: ['restaurant', 'traiteur', 'boulanger', 'agent-immobilier', 'artisan'],
+    metiersPresents: ['restaurant', 'traiteur', 'boulanger', 'agent-immobilier', 'menuisier'],
   },
   {
     slug: 'dinan',
@@ -324,7 +324,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'pêche, tourisme, artisanat, commerce, conserverie',
     entreprisesType: 'pêcheurs, artisans, restaurants, commerces touristiques, producteurs locaux',
     villesProches: ['quimper', 'brest', 'chateaulin', 'concarneau'],
-    metiersPresents: ['restaurant', 'traiteur', 'boulanger', 'artisan', 'photographe'],
+    metiersPresents: ['restaurant', 'traiteur', 'boulanger', 'menuisier', 'photographe'],
   },
   {
     slug: 'perros-guirec',
@@ -350,7 +350,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'artisanat, commerce, tourisme vert, services, agroalimentaire',
     entreprisesType: 'artisans, commerçants, restaurateurs, prestataires touristiques, professions libérales',
     villesProches: ['lorient', 'concarneau', 'quimper', 'pontivy'],
-    metiersPresents: ['restaurant', 'artisan', 'boulanger', 'electricien', 'plombier'],
+    metiersPresents: ['restaurant', 'menuisier', 'boulanger', 'electricien', 'plombier'],
   },
   {
     slug: 'loudéac',
@@ -376,7 +376,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'agriculture, artisanat, culture, commerce, agroalimentaire',
     entreprisesType: 'artisans, agriculteurs, commerces, prestataires événementiels, producteurs locaux',
     villesProches: ['morlaix', 'brest', 'quimper', 'loudéac'],
-    metiersPresents: ['artisan', 'boulanger', 'electricien', 'plombier', 'auto-entrepreneur'],
+    metiersPresents: ['menuisier', 'boulanger', 'electricien', 'plombier', 'auto-entrepreneur'],
   },
   {
     slug: 'chateaulin',
@@ -389,7 +389,7 @@ export const villesFrance: Ville[] = [
     secteurEco: 'agriculture, services, commerce, artisanat, pêche',
     entreprisesType: 'artisans, agriculteurs, commerces de proximité, prestataires de services',
     villesProches: ['quimper', 'brest', 'douarnenez', 'carhaix'],
-    metiersPresents: ['plombier', 'electricien', 'macon', 'boulanger', 'artisan'],
+    metiersPresents: ['plombier', 'electricien', 'macon', 'boulanger', 'menuisier'],
   },
   {
     slug: 'lanester',
