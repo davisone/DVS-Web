@@ -4,6 +4,7 @@ import { ArrowRight, MapPin, Check, Clock, Euro, MessageSquare } from 'lucide-re
 import { Button } from '@/components/ui/Button'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { villesFrance, getVilleBySlug } from '@/data/villes-france'
+import { getMetierBySlug } from '@/data/metiers'
 
 type Props = {
   params: Promise<{ ville: string }>
@@ -19,7 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ville) return {}
 
   const title = `Création site internet ${ville.nom} — Développeur web freelance`
-  const description = `Création de site internet à ${ville.nom} (${ville.departement}). Sites vitrines, e-commerce et applications web sur-mesure. Evan Davison, développeur freelance. Devis gratuit.`
+  const description = ville.secteurEco
+    ? `Création de site internet à ${ville.nom} (${ville.departement}). Evan Davison accompagne les professionnels du secteur ${ville.secteurEco}. Devis gratuit.`
+    : `Création de site internet à ${ville.nom} (${ville.departement}). Sites vitrines, e-commerce et applications web sur-mesure. Devis gratuit.`
 
   return {
     title,
@@ -348,6 +351,65 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Métiers locaux */}
+      {ville.metiersPresents.length > 0 && (
+        <section className="py-12 md:py-16">
+          <div className="container-custom">
+            <ScrollReveal>
+              <h2 className="heading-3 mb-4">
+                Métiers que j&apos;accompagne à {ville.nom}
+              </h2>
+              <p className="text-body mb-6">
+                Artisans, commerçants, professions libérales — je crée des sites adaptés à chaque activité.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {ville.metiersPresents.map((metierSlug) => {
+                  const metier = getMetierBySlug(metierSlug)
+                  if (!metier) return null
+                  return (
+                    <a
+                      key={metierSlug}
+                      href={`/site-internet-pour/${metierSlug}`}
+                      className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-700 text-neutral-300 text-sm hover:border-accent hover:text-accent transition-colors"
+                    >
+                      {metier.nom}
+                    </a>
+                  )
+                })}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* Villes proches */}
+      {ville.villesProches.length > 0 && (
+        <section className="py-12 border-t border-neutral-800">
+          <div className="container-custom">
+            <ScrollReveal>
+              <h2 className="heading-3 mb-4">
+                Je travaille aussi dans les villes proches de {ville.nom}
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {ville.villesProches.map((villeSlug) => {
+                  const villeProche = getVilleBySlug(villeSlug)
+                  if (!villeProche) return null
+                  return (
+                    <a
+                      key={villeSlug}
+                      href={`/creation-site-internet/${villeSlug}`}
+                      className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-700 text-neutral-300 text-sm hover:border-accent hover:text-accent transition-colors"
+                    >
+                      {villeProche.nom}
+                    </a>
+                  )
+                })}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-16 md:py-24">
