@@ -124,7 +124,7 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://dvs-web.fr' },
-      { '@type': 'ListItem', position: 2, name: 'Création site internet', item: 'https://dvs-web.fr/creation-site-internet/rennes' },
+      { '@type': 'ListItem', position: 2, name: 'Création site internet', item: 'https://dvs-web.fr/creation-site-internet' },
       { '@type': 'ListItem', position: 3, name: `Création site internet ${ville.nom}`, item: `https://dvs-web.fr/creation-site-internet/${ville.slug}` },
     ],
   })
