@@ -132,3 +132,10 @@ Les avis clients sur vos fiches produits génèrent du contenu frais et amélior
 ---
 
 Vous avez un projet de boutique en ligne ? [Contactez-moi](/contact) pour discuter de votre projet et obtenir un devis personnalisé.
+
+---
+
+**À lire aussi :**
+- [Site internet pour boulanger](/site-internet-pour/boulanger) — vente en ligne et click & collect pour les artisans boulangers
+- [Site internet pour traiteur](/site-internet-pour/traiteur) — boutique en ligne et commandes pour les traiteurs
+- [Création de site internet à Nantes](/creation-site-internet/nantes) — e-commerce pour les TPE et commerçants du grand Ouest

@@ -113,3 +113,10 @@ Les textes et les photos sont essentiels. Prévoyez un budget pour :
 Le prix d'un site vitrine à Rennes dépend de nombreux facteurs. Pour un projet professionnel avec un **développeur web freelance à Rennes**, prévoyez entre **2 000 € et 5 000 €**. C'est un investissement rentable qui vous permettra de gagner en visibilité et d'attirer de nouveaux clients.
 
 Besoin d'un devis personnalisé pour votre site vitrine à Rennes ? N'hésitez pas à me contacter pour discuter de votre projet.
+
+---
+
+**À lire aussi :**
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — toutes les informations sur la création de site à Rennes
+- [Site internet pour plombier](/site-internet-pour/plombier) — tarifs et spécificités pour les artisans plombiers
+- [Site internet pour auto-entrepreneur](/site-internet-pour/auto-entrepreneur) — solutions adaptées aux indépendants

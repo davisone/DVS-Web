@@ -99,3 +99,10 @@ Pour la majorité des TPE et PME, un développeur freelance compétent offre le 
 L'important est de choisir un freelance avec un portfolio solide, des références vérifiables et une approche méthodique. Une vraie rencontre ou un appel avant de démarrer est indispensable.
 
 Vous avez un projet de site internet ? [Contactez-moi](/contact) pour discuter de vos besoins et obtenir un devis gratuit.
+
+---
+
+**À lire aussi :**
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — développeur freelance à Rennes pour votre site vitrine
+- [Site internet pour auto-entrepreneur](/site-internet-pour/auto-entrepreneur) — solutions abordables pour les indépendants
+- [Création de site internet à Brest](/creation-site-internet/brest) — accompagnement freelance dans tout le Finistère

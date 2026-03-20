@@ -94,3 +94,10 @@ Ces fourchettes concernent un prestataire freelance. Comptez 2 à 3 fois plus av
 ---
 
 Votre site présente l'un de ces signaux ? [Contactez-moi](/contact) pour un audit gratuit et une proposition de refonte adaptée à votre budget.
+
+---
+
+**À lire aussi :**
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — refonte et création de site pour les entreprises rennaises
+- [Site internet pour peintre](/site-internet-pour/peintre) — refonte adaptée aux artisans du bâtiment
+- [Site internet pour agent immobilier](/site-internet-pour/agent-immobilier) — refonte avec intégration de listings immobiliers

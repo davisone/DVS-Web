@@ -125,4 +125,11 @@ Choisir un **développeur web freelance à Rennes** est une décision judicieuse
 
 L'écosystème freelance rennais est dynamique et riche en talents. Prenez le temps de trouver le développeur qui correspond à vos besoins et à votre projet.
 
-Envie de discuter de votre projet web à Rennes ? Contactez-moi pour un premier échange sans engagement.
+Envie de discuter de votre projet web à Rennes ? [Contactez-moi](/contact) pour un premier échange sans engagement.
+
+---
+
+**À lire aussi :**
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — votre développeur freelance basé près de Rennes
+- [Création de site internet à Saint-Malo](/creation-site-internet/saint-malo) — intervention dans toute la Bretagne
+- [Site internet pour auto-entrepreneur](/site-internet-pour/auto-entrepreneur) — solutions dédiées aux indépendants rennais

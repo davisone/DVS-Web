@@ -222,4 +222,11 @@ Le SEO local est le levier le plus rentable pour un artisan à Rennes qui souhai
 
 La clé du succès ? La régularité. Un travail constant sur votre fiche Google, votre site web et vos avis clients portera ses fruits en quelques mois.
 
-Vous êtes artisan à Rennes et vous souhaitez améliorer votre visibilité sur Google ? Contactez-moi pour un audit SEO gratuit de votre présence en ligne.
+Vous êtes artisan à Rennes et vous souhaitez améliorer votre visibilité sur Google ? [Contactez-moi](/contact) pour un audit SEO gratuit de votre présence en ligne.
+
+---
+
+**À lire aussi :**
+- [Site internet pour plombier](/site-internet-pour/plombier) — site optimisé SEO local pour les plombiers à Rennes et en Bretagne
+- [Site internet pour électricien](/site-internet-pour/electricien) — référencement local pour les électriciens
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — SEO local et site vitrine pour les artisans rennais

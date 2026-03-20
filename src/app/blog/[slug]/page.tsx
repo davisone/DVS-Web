@@ -78,6 +78,29 @@ export default async function Page({ params }: PageProps) {
     keywords: post.tags.join(', '),
   }
 
+  // FAQ Schema générique pour les articles de blog
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Combien coûte la création d'un site internet ?",
+        acceptedAnswer: { '@type': 'Answer', text: 'Un site vitrine professionnel démarre à partir de ~600€. Devis gratuit sur demande.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Travaillez-vous avec des artisans ?',
+        acceptedAnswer: { '@type': 'Answer', text: "Oui, j'accompagne des plombiers, électriciens, coiffeurs, restaurateurs et tout type d'artisan ou TPE en Bretagne et grand Ouest." },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment me contacter pour un projet ?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Via le formulaire de contact sur dvs-web.fr/contact ou directement par email à contact@dvs-web.fr.' },
+      },
+    ],
+  }
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -112,6 +135,10 @@ export default async function Page({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <BlogPostPage post={post} contentHtml={contentHtml} />
     </>

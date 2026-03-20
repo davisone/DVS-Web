@@ -109,3 +109,10 @@ Ces tarifs correspondent à un développeur freelance. Une agence facturera gén
 ---
 
 Vous gérez un restaurant ou un café et vous souhaitez un site qui attire vraiment des clients ? [Demandez un devis gratuit](/contact) — je vous réponds sous 24h.
+
+---
+
+**À lire aussi :**
+- [Site internet pour restaurant](/site-internet-pour/restaurant) — guide complet et tarifs pour les restaurateurs
+- [Site internet pour boulanger](/site-internet-pour/boulanger) — vente en ligne et visibilité locale pour les artisans boulangers
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — développeur freelance pour les restaurants rennais

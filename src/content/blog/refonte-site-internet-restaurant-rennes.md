@@ -153,4 +153,11 @@ En travaillant avec un **développeur web freelance à Rennes**, vous bénéfici
 
 La refonte du site de votre restaurant à Rennes est un investissement stratégique. Un site moderne, rapide et bien référencé vous permet d'attirer plus de clients et de vous démarquer dans un marché concurrentiel. N'attendez pas que vos concurrents prennent de l'avance.
 
-Vous souhaitez discuter de la refonte de votre site de restaurant à Rennes ? Contactez-moi pour un audit gratuit de votre site actuel.
+Vous souhaitez discuter de la refonte de votre site de restaurant à Rennes ? [Contactez-moi](/contact) pour un audit gratuit de votre site actuel.
+
+---
+
+**À lire aussi :**
+- [Site internet pour restaurant](/site-internet-pour/restaurant) — création et refonte pour tous les types de restauration
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — développeur web spécialisé à Rennes
+- [Site internet pour traiteur](/site-internet-pour/traiteur) — commandes en ligne et gestion d'événements pour les traiteurs

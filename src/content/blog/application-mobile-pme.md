@@ -110,3 +110,10 @@ Si vous n'avez pas de réponses claires à ces questions, il est trop tôt pour 
 Une application mobile peut être un formidable outil de croissance pour votre PME — à condition que l'usage soit là et que le budget maintenance soit prévu. Ce n'est pas une question de taille d'entreprise mais d'adéquation entre l'outil et les besoins réels de vos clients.
 
 Vous avez un projet d'application mobile ? [Discutons-en](/contact) — je commence toujours par évaluer si l'app est réellement la meilleure solution pour votre cas.
+
+---
+
+**À lire aussi :**
+- [Créer un site internet pour votre restaurant](/site-internet-pour/restaurant) — souvent plus rentable qu'une app pour un premier projet
+- [Site internet pour auto-entrepreneur](/site-internet-pour/auto-entrepreneur) — l'étape avant l'application mobile
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — accompagnement web pour les TPE et PME bretonnes

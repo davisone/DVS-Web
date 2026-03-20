@@ -95,3 +95,10 @@ C'est le coût d'une heure et demie de travail d'un développeur — pour une tr
 ---
 
 Votre site internet n'a pas été maintenu depuis un moment ? [Contactez-moi](/contact) pour un audit gratuit — je vous dis exactement ce qui doit être fait en priorité.
+
+---
+
+**À lire aussi :**
+- [Site internet pour plombier](/site-internet-pour/plombier) — création et maintenance pour les artisans du bâtiment
+- [Site internet pour électricien](/site-internet-pour/electricien) — site vitrine avec suivi et maintenance inclus
+- [Création de site internet à Rennes](/creation-site-internet/rennes) — maintenance et hébergement pour les entreprises rennaises
