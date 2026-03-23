@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Développeur Web Freelance à Rennes et en Ille-et-Vilaine (35)',
   description:
     'Evan Davison, développeur web freelance à Rennes. Création de sites internet, sites vitrines, applications web et mobiles en Ille-et-Vilaine. Freelance disponible à Mordelles, Bruz, Cesson-Sévigné et alentours. Devis gratuit.',
+  alternates: {
+    canonical: 'https://dvs-web.fr/developpeur-web-rennes',
+  },
   openGraph: {
     title: 'Développeur Web Freelance à Rennes et en Ille-et-Vilaine',
     description:

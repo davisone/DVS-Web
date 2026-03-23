@@ -50,6 +50,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/creation-site-internet`,
+      lastModified: new Date('2026-03-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/site-internet-pour`,
+      lastModified: new Date('2026-03-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: new Date('2026-02-24'),
       changeFrequency: 'weekly' as const,
