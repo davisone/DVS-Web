@@ -103,5 +103,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...routes, ...villesRoutes, ...blogRoutes, ...metiersRoutes]
+  const villeMetierRoutes: MetadataRoute.Sitemap = villesFrance.flatMap((ville) =>
+    ville.metiersPresents.map((metierSlug) => ({
+      url: `${baseUrl}/creation-site-internet/${ville.slug}/${metierSlug}`,
+      lastModified: new Date('2026-03-23'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    }))
+  )
+
+  return [...routes, ...villesRoutes, ...blogRoutes, ...metiersRoutes, ...villeMetierRoutes]
 }

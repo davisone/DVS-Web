@@ -6,6 +6,11 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { metiers, getMetierBySlug } from '@/data/metiers'
 import { getVilleBySlug } from '@/data/villes-france'
 
+function villeHasMetier(villeSlug: string, metierSlug: string): boolean {
+  const ville = getVilleBySlug(villeSlug)
+  return ville ? ville.metiersPresents.includes(metierSlug) : false
+}
+
 type Props = { params: Promise<{ metier: string }> }
 
 export async function generateStaticParams() {
@@ -253,10 +258,13 @@ export default async function SiteInternetPourMetierPage({ params }: Props) {
                 {metier.villesPrincipales.map((villeSlug) => {
                   const ville = getVilleBySlug(villeSlug)
                   if (!ville) return null
+                  const href = villeHasMetier(villeSlug, metier.slug)
+                    ? `/creation-site-internet/${villeSlug}/${metier.slug}`
+                    : `/creation-site-internet/${villeSlug}`
                   return (
                     <a
                       key={villeSlug}
-                      href={`/creation-site-internet/${villeSlug}`}
+                      href={href}
                       className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-700 text-neutral-300 text-sm hover:border-accent hover:text-accent transition-colors"
                     >
                       {ville.nom}

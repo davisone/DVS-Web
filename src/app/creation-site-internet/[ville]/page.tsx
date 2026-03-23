@@ -379,7 +379,7 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
                   return (
                     <a
                       key={metierSlug}
-                      href={`/site-internet-pour/${metierSlug}`}
+                      href={`/creation-site-internet/${ville.slug}/${metierSlug}`}
                       className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-700 text-neutral-300 text-sm hover:border-accent hover:text-accent transition-colors"
                     >
                       {metier.nom}
