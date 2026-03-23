@@ -54,7 +54,11 @@ export default async function SiteInternetPourMetierPage({ params }: Props) {
       url: 'https://dvs-web.fr',
     },
     description: metier.description,
-    areaServed: 'Bretagne, Grand Ouest, France',
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Bretagne' },
+      { '@type': 'AdministrativeArea', name: 'Grand Ouest' },
+      { '@type': 'Country', name: 'France' },
+    ],
   })
 
   // Fil d'Ariane

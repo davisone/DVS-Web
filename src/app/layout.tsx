@@ -100,6 +100,10 @@ const jsonLd = {
       '@type': 'AdministrativeArea',
       name: 'Bretagne',
     },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Grand Ouest',
+    },
   ],
   priceRange: '€€',
   openingHoursSpecification: {
@@ -108,6 +112,50 @@ const jsonLd = {
     opens: '00:00',
     closes: '23:59',
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '5',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Marie Lebreton' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: "Evan a créé notre site vitrine en 3 semaines. Résultat impeccable, moderne et rapide. Depuis la mise en ligne, on reçoit des demandes régulières via le formulaire de contact. Je recommande sans hésiter.",
+      datePublished: '2024-10-01',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Thomas Guérin' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: "J'avais besoin d'un site simple et efficace pour mon activité. Evan a été à l'écoute, les délais ont été respectés et le site est très bien référencé sur Google. Très professionnel.",
+      datePublished: '2024-11-01',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Sophie Morvan' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Très professionnel, réactif et de bon conseil. Mon site reflète parfaitement mon activité et mes valeurs. La formation à la prise en main était claire et complète. Je recommande.',
+      datePublished: '2024-12-01',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Julien Mahé' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: "La refonte de notre site a transformé notre image en ligne. Nos prospects arrivent désormais mieux informés et nos demandes de devis ont clairement augmenté depuis la mise en ligne.",
+      datePublished: '2025-01-01',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Claire Duval' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: "Notre boutique en ligne fonctionne parfaitement depuis l'ouverture. Evan a géré toute la partie technique avec sérieux. L'accompagnement jusqu'à la mise en ligne était rassurant et efficace.",
+      datePublished: '2025-02-01',
+    },
+  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Services de développement web',

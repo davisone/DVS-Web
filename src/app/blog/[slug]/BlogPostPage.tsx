@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Clock, Calendar, Tag } from 'lucide-react'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { BlogPost, categories } from '@/data/blog'
 import { formatDate } from '@/lib/utils'
@@ -9,9 +9,10 @@ import { formatDate } from '@/lib/utils'
 interface BlogPostPageProps {
   post: BlogPost
   contentHtml: string
+  relatedPosts?: BlogPost[]
 }
 
-export function BlogPostPage({ post, contentHtml }: BlogPostPageProps) {
+export function BlogPostPage({ post, contentHtml, relatedPosts = [] }: BlogPostPageProps) {
   return (
     <div className="min-h-screen bg-primary">
       {/* Header */}
@@ -75,6 +76,39 @@ export function BlogPostPage({ post, contentHtml }: BlogPostPageProps) {
                     {tag}
                   </span>
                 ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* Articles connexes */}
+      {relatedPosts.length > 0 && (
+        <section className="pb-12 md:pb-16">
+          <div className="container-custom max-w-4xl">
+            <ScrollReveal delay={0.25}>
+              <div className="border-t border-neutral-800 pt-12">
+                <h2 className="heading-3 mb-6">Articles connexes</h2>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {relatedPosts.map((related) => (
+                    <Link
+                      key={related.slug}
+                      href={`/blog/${related.slug}`}
+                      className="card group hover:border-accent/50 transition-colors flex flex-col gap-3"
+                    >
+                      <span className="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent w-fit">
+                        {categories[related.category].label}
+                      </span>
+                      <p className="text-white text-sm font-medium leading-snug group-hover:text-accent transition-colors">
+                        {related.title}
+                      </p>
+                      <p className="text-accent text-xs flex items-center gap-1 mt-auto">
+                        Lire l&apos;article
+                        <ArrowRight size={12} />
+                      </p>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </ScrollReveal>
           </div>

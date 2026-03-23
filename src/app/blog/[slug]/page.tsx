@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllSlugs, getPostBySlug, getPostContent } from '@/lib/blog'
+import { getAllSlugs, getPostBySlug, getPostContent, getAllPosts } from '@/lib/blog'
 import { BlogPostPage } from './BlogPostPage'
 
 interface PageProps {
@@ -27,14 +27,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url: `https://dvs-web.fr/blog/${post.slug}`,
         type: 'article',
         publishedTime: post.date,
-        images: [
-          {
-            url: '/images/og-image.png',
-            width: 1200,
-            height: 630,
-            alt: post.title,
-          },
-        ],
       },
     }
   } catch {
@@ -53,6 +45,17 @@ export default async function Page({ params }: PageProps) {
   }
 
   const contentHtml = await getPostContent(post.content)
+
+  // Articles connexes : même catégorie, max 3, excluant l'article courant
+  const allPosts = getAllPosts()
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== post.slug && p.category === post.category)
+    .slice(0, 3)
+
+  // Si pas assez d'articles dans la même catégorie, compléter avec d'autres
+  const related = relatedPosts.length >= 2
+    ? relatedPosts
+    : allPosts.filter((p) => p.slug !== post.slug).slice(0, 3)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -76,29 +79,6 @@ export default async function Page({ params }: PageProps) {
       '@id': `https://dvs-web.fr/blog/${post.slug}`,
     },
     keywords: post.tags.join(', '),
-  }
-
-  // FAQ Schema générique pour les articles de blog
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: "Combien coûte la création d'un site internet ?",
-        acceptedAnswer: { '@type': 'Answer', text: 'Un site vitrine professionnel démarre à partir de ~600€. Devis gratuit sur demande.' },
-      },
-      {
-        '@type': 'Question',
-        name: 'Travaillez-vous avec des artisans ?',
-        acceptedAnswer: { '@type': 'Answer', text: "Oui, j'accompagne des plombiers, électriciens, coiffeurs, restaurateurs et tout type d'artisan ou TPE en Bretagne et grand Ouest." },
-      },
-      {
-        '@type': 'Question',
-        name: 'Comment me contacter pour un projet ?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Via le formulaire de contact sur dvs-web.fr/contact ou directement par email à contact@dvs-web.fr.' },
-      },
-    ],
   }
 
   const breadcrumbJsonLd = {
@@ -136,11 +116,8 @@ export default async function Page({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <BlogPostPage post={post} contentHtml={contentHtml} />
+
+      <BlogPostPage post={post} contentHtml={contentHtml} relatedPosts={related} />
     </>
   )
 }

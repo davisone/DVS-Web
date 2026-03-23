@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ArrowRight, MapPin, Check, Clock, Euro, MessageSquare } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, MapPin, Check, Clock, Euro, MessageSquare, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { villesFrance, getVilleBySlug } from '@/data/villes-france'
 import { getMetierBySlug } from '@/data/metiers'
+import { getAllPosts } from '@/lib/blog'
 
 type Props = {
   params: Promise<{ ville: string }>
@@ -92,6 +94,13 @@ const inclus = [
   'Hébergement et nom de domaine configurés',
   'Formation à la prise en main',
   'Support après livraison',
+]
+
+// Articles liés affichés en bas de chaque page ville
+const ARTICLES_LIES = [
+  { slug: 'pourquoi-artisan-besoin-site-internet', titre: 'Pourquoi un artisan a besoin d\'un site internet en 2025' },
+  { slug: 'developpeur-web-freelance-vs-agence', titre: 'Freelance vs agence web : comment choisir ?' },
+  { slug: 'seo-local-artisan-rennes', titre: 'SEO local : comment être trouvé par vos clients près de chez vous' },
 ]
 
 export default async function CreationSiteInternetVillePage({ params }: Props) {
@@ -410,6 +419,83 @@ export default async function CreationSiteInternetVillePage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Développeur web freelance à {ville} — section keyword */}
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <ScrollReveal>
+              <h2 className="heading-2 mb-6">
+                Développeur web freelance à {ville.nom}
+              </h2>
+              <p className="text-body mb-4">
+                Vous cherchez un développeur web indépendant pour votre projet à {ville.nom} ?
+                Je propose des tarifs freelance accessibles — sans les frais de structure d&apos;une agence —
+                pour une qualité identique, voire supérieure, grâce à un suivi direct et personnalisé.
+              </p>
+              <p className="text-body mb-4">
+                Basé en Ille-et-Vilaine, j&apos;interviens régulièrement avec des professionnels
+                {ville.distanceRennes ? ` — ${ville.nom} se trouve à ${ville.distanceRennes} de ma base` : ' dans toute la région'}.
+                La grande majorité des projets se déroulent en visio, ce qui me permet d&apos;être efficace
+                quelle que soit votre localisation.
+              </p>
+              <p className="text-body">
+                De la conception au lancement, vous avez un seul interlocuteur qui connaît votre projet
+                dans son intégralité. Aucun chef de projet, aucune équipe dispersée — juste vous et moi.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="space-y-4">
+                <h3 className="heading-3 mb-6">Pourquoi choisir un freelance à {ville.nom} ?</h3>
+                {[
+                  { titre: 'Réactivité garantie', desc: 'Je réponds sous 24h et vous tenez informé à chaque étape du projet.' },
+                  { titre: 'Tarifs sans frais de structure', desc: 'Pas d\'agence, pas d\'intermédiaire. Votre budget va directement au développement.' },
+                  { titre: 'Expertise technique complète', desc: 'Design, développement, SEO et mise en ligne — tout est géré par la même personne.' },
+                  { titre: 'Accompagnement après livraison', desc: 'Vous n\'êtes pas seul après la mise en ligne. Support et évolutions disponibles.' },
+                ].map((item) => (
+                  <div key={item.titre} className="flex gap-3">
+                    <Check className="text-accent flex-shrink-0 mt-0.5" size={18} />
+                    <div>
+                      <p className="text-white font-medium text-sm mb-0.5">{item.titre}</p>
+                      <p className="text-neutral-400 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Articles liés */}
+      <section className="py-12 md:py-16 border-t border-neutral-800">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="flex items-center gap-2 mb-6">
+              <BookOpen className="text-accent" size={20} />
+              <h2 className="heading-3">Ressources utiles pour votre projet</h2>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {ARTICLES_LIES.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/blog/${article.slug}`}
+                  className="card group hover:border-accent/50 transition-colors"
+                >
+                  <p className="text-white text-sm font-medium group-hover:text-accent transition-colors leading-snug">
+                    {article.titre}
+                  </p>
+                  <p className="text-accent text-xs flex items-center gap-1 mt-3">
+                    Lire l&apos;article
+                    <ArrowRight size={12} />
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-16 md:py-24">
